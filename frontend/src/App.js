@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react' //importar libreria
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//se puede poner export default antes de class o *// 
+class App extends React.Component{  //creo una clase de componente hereda de clase superior en libreria de react -component-
+  render(){  //renderiza lo que retorna
+    var nombre= "Camila"  
+    return (
+     <>
+       <h1>hola Soy {nombre} y esta es mi proxima web app de viajes</h1>
+      </>
+    )
+  }
 }
+//*o aca*
+export default App
 
-export default App;
