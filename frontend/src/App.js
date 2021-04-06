@@ -1,14 +1,14 @@
 import React from 'react' //importar libreria
-import '-./App.css' //importar css
+import './App.css' //importar css
+import Home from './pages/Home'
 
 //se puede poner export default antes de class o *// 
 class App extends React.Component{  //creo una clase de componente hereda de clase superior en libreria de react -component-
   render(){  //renderiza lo que retorna
-    var nombre= "Camila"  //forma de dar estilo:
+    //const nombre= "Camila"  //forma de dar estilo:
     return (
      <div className="contenedor"> 
-        <h1>hola Soy {nombre} y esta es Mi Proxima Web App de viajes</h1>
-        <h2>¡Bienvenidos!</h2>
+        <Home/>
       </div>
     )
   }

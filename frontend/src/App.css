@@ -1,5 +1,45 @@
+html*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 div.contenedor{
     width: 100vw;
     height: 100vh;
     background-color: rgb(100, 240, 240);
+    
+}
+
+div.homeContainer{
+    height: 70vh;
+    text-align: center;
+    background-image: url(/frontend/public/assets/avion-atardecer.jpg);
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin: 0vh auto;
+    background-color: blue;
+    color: white;
+    padding: 1vh;
+    
+}
+
+header img{
+    width: 15vw;
+    padding: 2vw;
+}
+
+header nav a{
+    display: flex;
+    flex-direction: column;
+    color:white;
+    text-decoration: none;
+    margin-left: 3vw;
+    padding: 1vw;
+    
 }
