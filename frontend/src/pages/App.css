@@ -5,16 +5,12 @@ html*{
 }
 
 div.contenedor{
-    width: 100vw;
-    height: 100vh;
     background-color: rgb(100, 240, 240);
-    
 }
 
 div.homeContainer{
-    height: 70vh;
     text-align: center;
-    background-image: url(/frontend/public/assets/avion-atardecer.jpg);
+    background-color: #87D6CE;
 }
 
 header{
@@ -23,15 +19,14 @@ header{
     align-items: center;
     text-align: center;
     margin: 0vh auto;
-    background-color: blue;
     color: white;
     padding: 1vh;
     
 }
 
 header img{
-    width: 15vw;
-    padding: 2vw;
+    width: 8vw;
+    padding: 1vw;
 }
 
 header nav a{
@@ -41,5 +36,27 @@ header nav a{
     text-decoration: none;
     margin-left: 3vw;
     padding: 1vw;
-    
 }
+
+main{
+    display: flex;
+    align-items: center;
+}
+main img{
+    width: 60vw;
+}
+
+
+#logoBoton{
+    height:60px
+}
+
+.footer{
+    display:flex;
+    justify-content: start;
+    background-color: rgb(139, 23, 246);
+    height: 20vh;
+}
+
+
+
