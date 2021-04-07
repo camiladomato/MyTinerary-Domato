@@ -11,10 +11,7 @@ div.contenedor{
 div.homeContainer{
     text-align: center;
     color: white;
-    font-family: 'Anton', sans-serif;
-font-family: 'Poppins', sans-serif;
-font-family: 'Zilla Slab Highlight', cursive;
-   
+    font-family: 'RocknRoll One', sans-serif;
 }
 
 header{
@@ -26,14 +23,12 @@ header{
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-    
-    
 }
 
 header img{
-    width: 6vw;
-    height: 10vh;
     padding: 1vw;
+    width: 70px;
+    height: 65px;
 }
 
 header nav a{
@@ -43,7 +38,6 @@ header nav a{
     text-decoration: none;
     margin-left: 3vw;
     padding: 1vw;
-    
 }
 
 main{

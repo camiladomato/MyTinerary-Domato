@@ -5,7 +5,6 @@ const Main=()=>{
     
         <main>
                 <img src="./assets/valija.jpg"/>
-
         </main>
     )
 }
