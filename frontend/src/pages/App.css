@@ -1,31 +1,38 @@
 html*{
     margin:0;
-    padding: 0;
+    padding:0;
     box-sizing: border-box;
 }
 
 div.contenedor{
-    background-color: rgb(100, 240, 240);
+    background: linear-gradient(to bottom,#87D6CE,#51bcb0);
 }
 
 div.homeContainer{
     text-align: center;
-    background-color: #87D6CE;
+    color: white;
+    font-family: 'Anton', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Zilla Slab Highlight', cursive;
+   
 }
 
 header{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    text-align: center;
     margin: 0vh auto;
-    color: white;
     padding: 1vh;
+    background-image: url(https://www.65ymas.com/uploads/s1/38/76/66/viajar.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    
     
 }
 
 header img{
-    width: 8vw;
+    width: 6vw;
+    height: 10vh;
     padding: 1vw;
 }
 
@@ -36,26 +43,25 @@ header nav a{
     text-decoration: none;
     margin-left: 3vw;
     padding: 1vw;
+    
 }
 
 main{
     display: flex;
-    align-items: center;
+    justify-content: center;
+
 }
 main img{
-    width: 60vw;
-}
-
-
-#logoBoton{
-    height:60px
+    width: 80vw;
 }
 
 .footer{
     display:flex;
-    justify-content: start;
-    background-color: rgb(139, 23, 246);
-    height: 20vh;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    height: 10vh;
+    color: white;
 }
 
 

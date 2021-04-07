@@ -1,5 +1,5 @@
 import React from 'react' //importar libreria
-import './App.css' //importar css
+import './pages/App.css' //importar css
 import Home from './pages/Home'
 
 //se puede poner export default antes de class o *// 
