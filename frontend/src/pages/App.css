@@ -4,57 +4,60 @@ html*{
     box-sizing: border-box;
 }
 
-div.contenedor{
+body{
+    font-family: 'RocknRoll One', sans-serif;
     background: linear-gradient(to bottom,#87D6CE,#51bcb0);
 }
+
 
 div.homeContainer{
     text-align: center;
     color: white;
-    font-family: 'RocknRoll One', sans-serif;
+    
 }
 
 header{
     display: flex;
     justify-content: space-between;
-    margin: 0vh auto;
+    align-items: center;
     padding: 1vh;
-    background-image: url(https://www.65ymas.com/uploads/s1/38/76/66/viajar.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 4vh;  
+}
+header h1{
+    font-size:7vh;
 }
 
 header img{
     padding: 1vw;
-    width: 70px;
-    height: 65px;
+    height: 40px;
 }
 
 header nav a{
-    display: flex;
-    flex-direction: column;
     color:white;
     text-decoration: none;
-    margin-left: 3vw;
-    padding: 1vw;
+    height: 1vh;
+    font-size: 2vh;
 }
 
 main{
     display: flex;
+    height: 90vh;
+    background-size:cover;
     justify-content: center;
+    align-items: center;
+    }
 
-}
-main img{
-    width: 80vw;
+button{
+    background-color:blueviolet;
 }
 
 .footer{
     display:flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     background-color: black;
-    height: 10vh;
+    height: 8vh;
     color: white;
 }
 

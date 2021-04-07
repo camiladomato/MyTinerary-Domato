@@ -12,7 +12,6 @@ export default class Home extends React.Component {
                 <Header/>
                 <Main/>
                 <Footer/>
-            
             </div>
 
         )
