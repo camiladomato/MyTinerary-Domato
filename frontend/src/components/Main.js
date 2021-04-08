@@ -6,11 +6,16 @@ const Main=()=>{
     
         <main style={{backgroundImage:"url('./assets/viajar.jpeg')"}} >
            
-           <div>
+           <section>
+                <div>
                 <h1>MyTinerary</h1>
                 <p>Find your perfect trip, designed by insiders who know and love their cities!</p>
-                 <a href=""><button>click aqui</button></a>
-            </div>
+                </div>
+                <div>
+                <p>pensar una frase...para aca</p> 
+                <a href=""><img src="./assets/avion.png" id="botonAvion"></img></a>
+                </div>
+            </section>
             
         </main>
     )

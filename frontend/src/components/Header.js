@@ -1,7 +1,6 @@
-import React from 'react' //importo libreria
+import React from 'react' 
 
 
-//componente funcional , una funcion.
 const Header=()=>{
     return(
         <header>
@@ -10,8 +9,7 @@ const Header=()=>{
             <nav>
                 <a href="">Home</a>
                 <a href="">Cities</a>  
-                <a href="">Sign up</a>
-                <a href="">Login</a>       
+                <a href=""><img src="./assets/signup.png" id="signUp"/></a>      
             </nav>
         </header>
     )

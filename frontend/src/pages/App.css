@@ -1,4 +1,4 @@
-html*{
+html *{
     margin:0;
     padding:0;
     box-sizing: border-box;
@@ -20,18 +20,19 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
     padding: 1vh;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 4vh;  
+    height: 8vh;  
 }
 header h1{
-    font-size:7vh;
+    font-size:8vh;
 }
 
 header img{
     padding: 1vw;
-    height: 40px;
+    height: 100px;
 }
 
 header nav a{
@@ -39,26 +40,41 @@ header nav a{
     text-decoration: none;
     height: 1vh;
     font-size: 2vh;
+    margin-left: 3vh;
 }
 
 main{
     display: flex;
-    height: 90vh;
     background-size:cover;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    height: 90vh;
     }
-
-button{
-    background-color:blueviolet;
-}
 
 .footer{
     display:flex;
     justify-content: space-around;
     background-color: black;
-    height: 8vh;
     color: white;
+}
+
+.footer nav{
+    display: flex;
+    flex-direction: column;
+}
+
+.redesSociales{
+ display: flex;
+ flex-direction: column;
+}
+
+#botonAvion{
+    height: 5vh;
+    background-color:cadetblue;
+}
+
+#signUp{
+    height: 9vh;
 }
 
 

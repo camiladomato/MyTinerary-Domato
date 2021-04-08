@@ -12,7 +12,7 @@ const Footer=()=>{
             <a href="">Sign up</a>
             <a href="">Login</a>       
         </nav>
-        <div>
+        <div className="redesSociales">
             <p>Redes Sociales:</p>
             <a href="">Facebook</a>
             <a href="">Instangram</a>  
