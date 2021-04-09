@@ -1,16 +1,11 @@
 import React from 'react' 
-
+import{NavLink} from 'react-router-dom'
 
 const Header=()=>{
     return(
         <header>
-             <img src="./assets/logo2.png"/>
-            
-            <nav>
-                <a href="">Home</a>
-                <a href="">Cities</a>  
-                <a href=""><img src="./assets/signup.png" id="signUp"/></a>      
-            </nav>
+            <NavLink exact to="/"><h2>Home</h2></NavLink>
+            <NavLink exact to="/cities"><h2>Cities</h2></NavLink>
         </header>
     )
 }

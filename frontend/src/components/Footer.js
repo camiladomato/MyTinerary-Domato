@@ -7,17 +7,16 @@ const Footer=()=>{
             <h3> Camila Domato</h3>
         </div>
         <nav>
-            <a href="">Home</a>
-            <a href="">Cities</a>  
-            <a href="">Sign up</a>
-            <a href="">Login</a>       
+            <a href="https://www.facebook.com/">Home</a>
+            <a href="https://www.facebook.com/">Cities</a>  
+            <a href="https://www.facebook.com/">Sign up</a>
+            <a href="https://www.facebook.com/">Login</a>       
         </nav>
         <div className="redesSociales">
             <p>Redes Sociales:</p>
-            <a href="">Facebook</a>
-            <a href="">Instangram</a>  
-            <a href="">Whatsapp</a>
-
+            <a href="https://www.facebook.com/">Facebook</a>
+            <a href="https://www.facebook.com/">Instangram</a>  
+            <a href="https://www.facebook.com/">Whatsapp</a>
         </div>
     </div>
     )

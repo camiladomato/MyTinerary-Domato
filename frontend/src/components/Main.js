@@ -13,7 +13,7 @@ const Main=()=>{
                 </div>
                 <div>
                 <p>pensar una frase...para aca</p> 
-                <a href=""><img src="./assets/avion.png" id="botonAvion"></img></a>
+                <a href="https://www.facebook.com/">boton avion</a>
                 </div>
             </section>
             

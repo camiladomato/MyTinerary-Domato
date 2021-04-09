@@ -18,13 +18,10 @@ div.homeContainer{
 
 header{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
     padding: 1vh;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 8vh;  
+    height: 10vh;  
 }
 header h1{
     font-size:8vh;
@@ -76,6 +73,11 @@ main{
 #signUp{
     height: 9vh;
 }
+
+.carrousel{
+    display: flex;
+}
+
 
 
 
