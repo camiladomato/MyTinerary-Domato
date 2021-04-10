@@ -12,7 +12,9 @@ export default class Home extends React.Component {
             <div className="homeContainer">
                 <Header/>
                 <Main/>
+                <div className="carrousel">
                 <Carrousel/>
+                </div>
                 <Footer/>
             </div>
 

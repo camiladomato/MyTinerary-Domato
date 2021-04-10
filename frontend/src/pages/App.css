@@ -5,7 +5,7 @@ html *{
 }
 
 body{
-    font-family: 'RocknRoll One', sans-serif;
+    
     background: linear-gradient(to bottom,#87D6CE,#51bcb0);
 }
 
@@ -18,35 +18,52 @@ div.homeContainer{
 
 header{
     display: flex;
+    justify-content: space-between;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Fredoka One', cursive;
+    font-family: 'Staatliches', cursive;
+}
+
+.logo{
+    height: 65px;
+    width: 70px;
+    padding:10px;
+}
+
+.enlaces{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+
+}
+
+.link{
+    font-size: 10px;
+    margin: 5px;
     padding: 1vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 10vh;  
-}
-header h1{
-    font-size:8vh;
+    color: white;
+    border: 1px solid rgb(4, 194, 137);
+    border-radius: 40px;
+    background-color:rgb(39, 201, 179);
+
 }
 
-header img{
-    padding: 1vw;
-    height: 100px;
-}
-
-header nav a{
-    color:white;
-    text-decoration: none;
-    height: 1vh;
-    font-size: 2vh;
-    margin-left: 3vh;
-}
-
-main{
+.container-title{
+    font-family: 'Anton', sans-serif;
+font-family: 'Fredoka One', cursive;
+font-family: 'Staatliches', cursive;
     display: flex;
     background-size:cover;
-    justify-content: space-around;
+    height: 100vh;
+    justify-content: center;
     align-items: center;
-    height: 90vh;
     }
+
+     
+title{
+    height: 30vh;   
+}
+
 
 .footer{
     display:flex;
@@ -60,7 +77,7 @@ main{
     flex-direction: column;
 }
 
-.redesSociales{
+.social{
  display: flex;
  flex-direction: column;
 }
@@ -74,9 +91,32 @@ main{
     height: 9vh;
 }
 
+.slide{
+    display: flex ;
+    flex-wrap: wrap;
+    width: 50%;
+    background-size:cover;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Fredoka One', cursive;
+    font-family: 'Staatliches', cursive;
+}
+
+.cities{
+    height: 100vh;
+    text-align: center;
+}
+
 .carrousel{
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+
+
+
+
+
 
 
 
