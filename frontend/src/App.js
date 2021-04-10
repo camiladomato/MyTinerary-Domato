@@ -7,8 +7,6 @@ import Cmpt404 from './pages/404'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-
-
 class App extends React.Component{  
   render(){
     return(  

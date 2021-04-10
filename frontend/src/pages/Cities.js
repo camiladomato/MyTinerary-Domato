@@ -8,7 +8,7 @@ class Cities extends React.Component{
     return (
        <div class="cities">
         <Header/> 
-        <p> The page is under maintenance </p>
+        <p> The page is under construction </p>
        </div>
         )
     }

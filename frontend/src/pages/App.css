@@ -12,7 +12,7 @@ body{
 
 div.homeContainer{
     text-align: center;
-    color: white;
+    color:black;
     
 }
 
@@ -22,6 +22,14 @@ header{
     font-family: 'Anton', sans-serif;
     font-family: 'Fredoka One', cursive;
     font-family: 'Staatliches', cursive;
+   
+}
+
+.nav-h{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
 
 .logo{
@@ -32,17 +40,15 @@ header{
 
 .enlaces{
     display: flex;
-    text-align: center;
-    justify-content: center;
 
 }
 
 .link{
-    font-size: 10px;
+    font-size: 15px;
     margin: 5px;
     padding: 1vh;
-    color: white;
-    border: 1px solid rgb(4, 194, 137);
+    color:black;
+    border: 1px solid rgb(243, 246, 245);
     border-radius: 40px;
     background-color:rgb(39, 201, 179);
 
@@ -50,67 +56,60 @@ header{
 
 .container-title{
     font-family: 'Anton', sans-serif;
-font-family: 'Fredoka One', cursive;
-font-family: 'Staatliches', cursive;
+    font-family: 'Fredoka One', cursive;
+    font-family: 'Staatliches', cursive;
     display: flex;
     background-size:cover;
     height: 100vh;
-    justify-content: center;
     align-items: center;
-    }
-
-     
-title{
-    height: 30vh;   
+    justify-content: center;
+    
 }
+        
+.title{
+    height: 30vh;
+    padding: 10px; 
+}
+
+.link-city{
+    height: 40px;
+    width: 70px;
+    background-color:rgb(39, 201, 179);
+    border-radius: 70px;
+} 
 
 
 .footer{
     display:flex;
     justify-content: space-around;
+    flex-direction: column;
     background-color: black;
     color: white;
-}
-
-.footer nav{
-    display: flex;
-    flex-direction: column;
-}
-
-.social{
- display: flex;
- flex-direction: column;
-}
-
-#botonAvion{
-    height: 5vh;
-    background-color:cadetblue;
-}
-
-#signUp{
-    height: 9vh;
+    font-size: 10px;
 }
 
 .slide{
     display: flex ;
-    flex-wrap: wrap;
-    width: 50%;
+    flex-wrap: wrap ;
+    justify-content: center;
     background-size:cover;
+    padding:10px;
     font-family: 'Anton', sans-serif;
     font-family: 'Fredoka One', cursive;
     font-family: 'Staatliches', cursive;
 }
+
 
 .cities{
     height: 100vh;
     text-align: center;
 }
 
-.carrousel{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+  
+
+    
+
+
 
 
 

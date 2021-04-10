@@ -6,34 +6,33 @@ import {
   CarouselControl,
   CarouselIndicators,
 } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const cities = [
   [ 
-    {city:"Rome", path:'../assets/rom.jpg'},
-    {city:"Cancun", path:"../assets/cancun.jpg"},
-    {city:"Ibiza" ,path:"../assets/ibiza.jpg"},
-    {city:"New York", path:"../assets/ny.jpg"},
+    {city:"Rome", path:'../assets/rom.jpg' ,id:"01"},
+    {city:"Cancun", path:"../assets/cancun.jpg", id:"02"},
+    {city:"Ibiza" ,path:"../assets/ibiza.jpg" ,id:"03"},
+    {city:"New York", path:"../assets/ny.jpg",id:"04"},
     
   ],
   [
-    {city:"EEUU", path:"../assets/eeuu.jpg"},
-    {city:"Tokio", path:"../assets/tokio.jpg"},
-    {city:"Paris" ,path:"../assets/paris.jpg"},
-    {city:"Amsterdam", path:"../assets/amsterdam.jpg"}, 
+    {city:"LA", path:"../assets/eeuu.jpg",id:"05"},
+    {city:"Tokio", path:"../assets/tokio.jpg",id:"06"},
+    {city:"Paris" ,path:"../assets/paris.jpg",id:"07"},
+    {city:"Amsterdam", path:"../assets/amsterdam.jpg",id:"08"}, 
     
   ],
   [
-    {city:"Barcelona", path:"../assets/barcelona.jpg"},
-    {city:"Milan", path:"../assets/milan.jpg"},
-    {city:"Buenos Aires" ,path:"../assets/buenosaires.jpg"},
-    {city:"Berlin", path:"../assets/berlin.jpg"}, 
+    {city:"Barcelona", path:"../assets/barcelona.jpg",id:"09"},
+    {city:"Milan", path:"../assets/milan.jpg",id:"10"},
+    {city:"Buenos Aires" ,path:"../assets/buenosaires.jpg",id:"11"},
+    {city:"Berlin", path:"../assets/berlin.jpg",id:"12"}, 
     
   ],
  
 ];
-
-
 
 
 const Carrousel = (props) => {
@@ -59,36 +58,39 @@ const Carrousel = (props) => {
 
   const slides = cities.map((slide) => {
     return (
-      <CarouselItem className="slide"
+      <CarouselItem 
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
-        key={slide.src}
-      >{
+        key={slide.city}
+      ><div className="slide">
+        {
         slide.map ( citys =>{
           return (
           
-              <div style = {{backgroundImage:`url(${citys.path})`,width:"20vw", height:"30vh",margin:"1vh",padding:"1vh"}}>
+              <div style = {{backgroundImage:`url(${citys.path})`,width:"40vw", height:"30vh",margin:"1vh",padding:"1vh",backgroundSize:"cover"}}>
                 <p>{citys.city}</p>
               </div>
          
-            
+
             )
         })
       }
+      </div>
       </CarouselItem>
     );
   });
 
   return (
-    <Carousel 
+    <Carousel className="carousel"
       activeIndex={activeIndex}
       next={next}
       previous={previous}
-    >
+      
+    > 
       <CarouselIndicators items={cities} activeIndex={activeIndex} onClickHandler={goToIndex} />
       {slides}
-      <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-      <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+      <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous}/>
+      <CarouselControl direction="next" directionText="Next" onClickHandler={next}  />
     </Carousel>
   );
 }
