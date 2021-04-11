@@ -62,12 +62,15 @@ const Carrousel = (props) => {
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
         key={slide.city}
-      ><div className="slide">
+      >
+        <h2 className="txt">Popular MYtineraries</h2>
+        <div className="slide">
         {
         slide.map ( citys =>{
           return (
+  
           
-              <div style = {{backgroundImage:`url(${citys.path})`,width:"40vw", height:"30vh",margin:"1vh",padding:"1vh",backgroundSize:"cover"}}>
+              <div className="photo" style = {{backgroundImage:`url(${citys.path})`,width:"40vw", height:"30vh",margin:"1vh",padding:"1vh",backgroundSize:"cover"}}>
                 <p>{citys.city}</p>
               </div>
          

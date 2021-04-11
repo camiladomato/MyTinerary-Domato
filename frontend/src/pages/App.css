@@ -5,20 +5,18 @@ html *{
 }
 
 body{
-    
     background: linear-gradient(to bottom,#87D6CE,#51bcb0);
 }
 
 
 div.homeContainer{
     text-align: center;
-    color:black;
+    color:white;
     
 }
 
 header{
     display: flex;
-    justify-content: space-between;
     font-family: 'Anton', sans-serif;
     font-family: 'Fredoka One', cursive;
     font-family: 'Staatliches', cursive;
@@ -27,62 +25,93 @@ header{
 
 .nav-h{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+    justify-content:space-between;
+    
 }
 
 .logo{
-    height: 65px;
-    width: 70px;
+    height: 5%;
+    width: 5%;
     padding:10px;
+}
+.user{
+    width: 6%;
+    padding:1px;
+
 }
 
 .enlaces{
     display: flex;
-
+    text-shadow: 2px 2px 2px black;
 }
 
 .link{
-    font-size: 15px;
+    font-size:30px;
     margin: 5px;
     padding: 1vh;
-    color:black;
-    border: 1px solid rgb(243, 246, 245);
-    border-radius: 40px;
-    background-color:rgb(39, 201, 179);
+    color:white;
+    border-radius: 48px;
+    background: linear-gradient(145deg, #7ac1b9, #90e5dc);
+    box-shadow:  5px 5px 14px #74b8b1,
+                 -5px -5px 14px #9af4eb;
 
 }
 
 .container-title{
+    display: flex;
+    background-size:cover;
+    align-items: center;
+    padding:20px ;
+    height: 75vh;
     font-family: 'Anton', sans-serif;
     font-family: 'Fredoka One', cursive;
     font-family: 'Staatliches', cursive;
+    text-shadow: 2px 2px 2px black;
+    
+}
+
+
+.title{
+    font-size: 50px;
+    padding:20px ;
+    justify-content: end;
+}
+
+.p-title{
+     font-size: 40px;
+     padding:20px ;
+}
+
+.Nav-link{
     display: flex;
-    background-size:cover;
-    height: 100vh;
-    align-items: center;
     justify-content: center;
     
 }
-        
-.title{
-    height: 30vh;
-    padding: 10px; 
-}
 
 .link-city{
-    height: 40px;
-    width: 70px;
-    background-color:rgb(39, 201, 179);
-    border-radius: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8vh;
+    width: 10vw;
+    border-radius: 40px;
+    background: linear-gradient(145deg, #7ac1b9, #90e5dc);
+    box-shadow:  5px 5px 14px #74b8b1,
+                 -5px -5px 14px #9af4eb;
+    color: white;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Fredoka One', cursive;
+    font-family: 'Staatliches', cursive;
+    text-shadow: 2px 2px 2px black;
+} 
+.img-city{
+    width: 6vw;
 } 
 
 
 .footer{
     display:flex;
     justify-content: space-around;
-    flex-direction: column;
     background-color: black;
     color: white;
     font-size: 10px;
@@ -99,10 +128,45 @@ header{
     font-family: 'Staatliches', cursive;
 }
 
+.photo{
+    transition: 1.5s ease;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;  
+}
+
+.photo:hover{
+    transform : scale(1.04);
+    cursor:pointer;
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+    filter: none;
+}
 
 .cities{
     height: 100vh;
     text-align: center;
+}
+
+.Call{
+    display: flex;
+    justify-content: center;
+}
+
+.txt-call{
+    font-size: 30px;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Fredoka One', cursive;
+    font-family: 'Staatliches', cursive;
+    text-shadow: 2px 2px 2px black;
+}
+
+.txt{
+    font-size: 30px;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Fredoka One', cursive;
+    font-family: 'Staatliches', cursive;
+    text-shadow: 2px 2px 2px black;
 }
 
   
