@@ -61,7 +61,7 @@ const Carrousel = (props) => {
  
       >
         <h2 className="txt">Popular MYtineraries</h2>
-        <div className="slide" >
+        <div className="slide">
         {
         slide.map ( citys =>{
           

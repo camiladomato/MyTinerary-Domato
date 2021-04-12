@@ -7,11 +7,11 @@ const Footer=()=>{
     <div>   
         <div  className="footer">
             <div className="social">
-                <p>Social Media:</p>
-                <p>Facebook</p>
-                <p>Instangram</p>
+                <img src="./assets/fb.png" alt="facebook" className="img-social"/>
+                <img src="./assets/inst.png" alt="instangram" className="img-social"/>
+                <img src="./assets/wsp.png" alt="whatsapp" className="img-social"/>
             </div>
-            <div>
+            <div className="link-footer">
                 <NavLink exact to="/"><h2 className="link">Home</h2></NavLink>
                 <NavLink exact to="/Cities"><h2 className="link">Cities</h2></NavLink>
             </div> 

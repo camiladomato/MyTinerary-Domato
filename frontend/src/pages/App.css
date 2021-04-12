@@ -106,7 +106,11 @@ header{
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
     padding: 20px;
+}
 
+.social{
+    display: flex;
+    align-items: center ;
 }
 
 .slide{
@@ -226,19 +230,26 @@ header{
     align-items: center;
 }
 
+.img-social{
+    height: 8vh;
+}
+
+.link-footer{
+    display: flex;
+}
 
 
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+@media only screen and (min-device-width : 300px) and (max-device-width : 800px) {
     .header{
         justify-content: space-between;
     }
     
     .title{
-        font-size: 3rem;
+        font-size: 4rem;
     }
     .p-title{
-        font-size: 1rem;
+        font-size: 2rem;
     }
    
     .link{
@@ -249,10 +260,13 @@ header{
         height: 60vh;
     }
     .txt-call{
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
     .photo-name{
         font-size: 1rem;
+    }
+    .photo{
+        width: 98vw !important;
     }
     .slide{
         flex-wrap: nowrap;
