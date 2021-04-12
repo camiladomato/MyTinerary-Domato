@@ -4,7 +4,6 @@ import {
   Carousel,
   CarouselItem,
   CarouselControl,
-  CarouselIndicators,
 } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -52,17 +51,13 @@ const Carrousel = (props) => {
     setActiveIndex(nextIndex);
   }
 
-  const goToIndex = (newIndex) => {
-    if (animating) return;
-    setActiveIndex(newIndex);
-  }
 
-  const slides = cities.map((slide) => {
+  const slides = cities.map((slide,id) => {
     return (
       <CarouselItem 
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
-        
+        key={id}
         
       >
         <h2 className="txt">Popular MYtineraries</h2>
@@ -88,11 +83,8 @@ const Carrousel = (props) => {
     <Carousel className="carousel"
       activeIndex={activeIndex}
       next={next}
-      previous={previous}
-      
-      
+      previous={previous}  
     > 
-      <CarouselIndicators items={cities} activeIndex={activeIndex} onClickHandler={goToIndex} />
       {slides}
       <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous}/>
       <CarouselControl direction="next" directionText="Next" onClickHandler={next}  />
