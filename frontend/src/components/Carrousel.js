@@ -39,13 +39,13 @@ const Carrousel = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
-  const next = () => {
+  const next = () => { 
     if (animating) return;
     const nextIndex = activeIndex === cities.length - 1 ? 0 : activeIndex + 1;
     setActiveIndex(nextIndex);
   }
 
-  const previous = () => {
+  const previous = () => {  
     if (animating) return;
     const nextIndex = activeIndex === 0 ? cities.length - 1 : activeIndex - 1;
     setActiveIndex(nextIndex);
@@ -58,7 +58,7 @@ const Carrousel = (props) => {
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
         key={id}
-        
+ 
       >
         <h2 className="txt">Popular MYtineraries</h2>
         <div className="slide" >

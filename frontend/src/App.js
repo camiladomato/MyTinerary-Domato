@@ -10,14 +10,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 class App extends React.Component{  
   render(){
     return(  
-      <BrowserRouter>
-      <Switch>
-      <Route exact path="/" component= {Home}/>
-      <Route exact path="/cities" component= {Cities}/>
-      <Route path="/error" component= {Cmpt404} />
-      <Redirect to ="/error"/> 
-      </Switch>
-     </BrowserRouter> 
+    <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component= {Home}/>
+          <Route exact path="/cities" component= {Cities}/>
+          <Route path="/error" component= {Cmpt404} />
+          <Redirect to ="/error"/> 
+        </Switch>
+    </BrowserRouter> 
      )
   }
 }

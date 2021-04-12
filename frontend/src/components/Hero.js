@@ -12,10 +12,10 @@ const Hero=()=>{
             </video>
                 <div className="titles">
                     <div className="title-logo">
-                    <img src="../assets/logo4.png" alt=" " className="logo" ></img>
-                    <h1 className="title">MyTinerary</h1>
+                        <img src="../assets/logo4.png" alt=" " className="logo" ></img>
+                        <h1 className="title">MyTinerary</h1>
                     </div>
-                    <p className="p-title">Find your perfect trip, designed by insiders who know and love their cities!</p>
+                        <p className="p-title">Find your perfect trip, designed by insiders who know and love their cities!</p>
                 </div>
         </main>
     )

@@ -209,7 +209,7 @@ header{
     padding: 2vh;
 }
 
-.page-city{
+.page-city {
     background-color:grey;
     height: 100vh;
     color:white;
@@ -217,6 +217,17 @@ header{
     justify-content: center;
     align-items: center;
 }
+.page-404 {
+    background-color:grey;
+    height: 90vh;
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .header{
