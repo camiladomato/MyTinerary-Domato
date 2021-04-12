@@ -11,28 +11,29 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const cities = [
   [ 
-    {city:"Rome", path:'../assets/rom.jpg' ,id:"01"},
-    {city:"Cancun", path:"../assets/cancun.jpg", id:"02"},
-    {city:"Ibiza" ,path:"../assets/ibiza.jpg" ,id:"03"},
-    {city:"New York", path:"../assets/ny.jpg",id:"04"},
+    {id:1, city:"Rome", path:'../assets/rom.jpg' },
+    {id:2,city:"Cancun", path:"../assets/cancun.jpg"},
+    {id:3,city:"Ibiza" ,path:"../assets/ibiza.jpg" },
+    {id:4,city:"New York", path:"../assets/ny.jpg"},
     
   ],
-  [
-    {city:"LA", path:"../assets/eeuu.jpg",id:"05"},
-    {city:"Tokio", path:"../assets/tokio.jpg",id:"06"},
-    {city:"Paris" ,path:"../assets/paris.jpg",id:"07"},
-    {city:"Amsterdam", path:"../assets/amsterdam.jpg",id:"08"}, 
+  [ 
+    {id:5,city:"LA", path:"../assets/eeuu.jpg"},
+    {id:6,city:"Tokio", path:"../assets/tokio.jpg"},
+    {id:7,city:"Paris" ,path:"../assets/paris.jpg"},
+    {id:8,city:"Amsterdam", path:"../assets/amsterdam.jpg"}, 
     
   ],
-  [
-    {city:"Barcelona", path:"../assets/barcelona.jpg",id:"09"},
-    {city:"Milan", path:"../assets/milan.jpg",id:"10"},
-    {city:"Buenos Aires" ,path:"../assets/buenosaires.jpg",id:"11"},
-    {city:"Berlin", path:"../assets/berlin.jpg",id:"12"}, 
+  [ 
+    {id:9,city:"Barcelona", path:"../assets/barcelona.jpg"},
+    {id:10,city:"Milan", path:"../assets/milan.jpg"},
+    {id:11,city:"Buenos Aires" ,path:"../assets/buenosaires.jpg"},
+    {id:12,city:"Berlin", path:"../assets/berlin.jpg"}, 
     
   ],
- 
 ];
+ 
+
 
 
 const Carrousel = (props) => {
@@ -61,20 +62,20 @@ const Carrousel = (props) => {
       <CarouselItem 
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
-        key={slide.city}
+        
+        
       >
         <h2 className="txt">Popular MYtineraries</h2>
-        <div className="slide">
+        <div className="slide" >
         {
         slide.map ( citys =>{
-          return (
-  
           
-              <div className="photo" style = {{backgroundImage:`url(${citys.path})`,width:"40vw", height:"30vh",margin:"1vh",padding:"1vh",backgroundSize:"cover"}}>
-                <p>{citys.city}</p>
+          return (
+            
+              <div key={citys.city} className="photo" style = {{backgroundImage:`url(${citys.path})`,width:"37vw", height:"40vh",margin:"1vh",backgroundSize:"cover"}}>
+                <h2 className="photo-name">{citys.city}</h2>
               </div>
-         
-
+        
             )
         })
       }
@@ -88,6 +89,7 @@ const Carrousel = (props) => {
       activeIndex={activeIndex}
       next={next}
       previous={previous}
+      
       
     > 
       <CarouselIndicators items={cities} activeIndex={activeIndex} onClickHandler={goToIndex} />

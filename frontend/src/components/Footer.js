@@ -1,26 +1,27 @@
 import React from 'react'
+import{NavLink} from 'react-router-dom'
 
 const Footer=()=>{
     return(
-    <div  className="footer">
-        
-        <div className="social">
-            <p>Social Media:</p>
-            <p>Facebook</p>
-            <p>Instangram</p>
-       
+ <div>
+    <div>   
+        <div  className="footer">
+            <div className="social">
+                <p>Social Media:</p>
+                <p>Facebook</p>
+                <p>Instangram</p>
+            </div>
+            <div>
+                <NavLink exact to="/"><h2 className="link">Home</h2></NavLink>
+                <NavLink exact to="/Cities"><h2 className="link">Cities</h2></NavLink>
+            </div> 
         </div>
-        <div>
-            <p>Adress:</p>
-            <p>Jan van Galenstraat 6 1051 KM Amsterdam, Netherlands</p>
-            <p>Email: support@ediblesign.com</p>
-        </div>
-        <div>
-        <p>student:</p>
-        <p>Camila Domato</p>
-        <p>Cohort 3 - Mindhub</p>
-        </div>
-    </div>
+            <div className="name">
+                <p>CAMILA DOMATO-</p>
+                <p>COHORT 3 - MINDHUB</p>
+            </div>
+     </div>
+</div>
     )
 }
 
