@@ -43,7 +43,7 @@ header{
 }
 
 .link{
-    font-size:16px;
+    font-size:1rem;
     margin: 5px;
     color:white;
     margin:3vh;
@@ -64,11 +64,11 @@ header{
 
 .title{
     font-family: 'Caveat Brush', cursive;
-    font-size: 100px;
+    font-size: 7rem;
 }
 
 .p-title{
-     font-size: 40px;
+     font-size: 3rem;
 
 }
 .title-logo{
@@ -103,7 +103,7 @@ header{
     justify-content: space-around;
     background-color: rgba(0,0,0,.616);
     color: white;
-    font-size: 20px;
+    font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
     padding: 20px;
 
@@ -122,7 +122,8 @@ header{
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
     filter: gray;
-    font-size: 20px;  
+    font-size:1rem;
+     
 }
 
 .photo:hover{
@@ -148,7 +149,7 @@ header{
     width: 100vw;
     background-color: black;
     color: white;
-    font-size: 20px;
+    font-size:1rem;
     font-family: 'Montserrat', sans-serif;
 
 }
@@ -175,7 +176,7 @@ header{
 
 .txt-call{
     text-align: center;
-    font-size: 30px;
+    font-size: 2rem;
     font-family: 'Ubuntu', sans-serif;
     text-shadow: 2px 2px 2px black;
 }
@@ -217,7 +218,41 @@ header{
     align-items: center;
 }
 
-  
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .header{
+        justify-content: space-between;
+    }
+    
+    .title{
+        font-size: 3rem;
+    }
+    .p-title{
+        font-size: 1rem;
+    }
+   
+    .link{
+        margin: 1vh;
+        font-size: 15px;
+    }
+    .container-title{
+        height: 60vh;
+    }
+    .txt-call{
+        font-size: 1.5rem;
+    }
+    .photo-name{
+        font-size: 1rem;
+    }
+    .slide{
+        flex-wrap: nowrap;
+        flex-direction: column;
+        align-items: center;    
+    }
+
+}
+
+
+
 
 
 

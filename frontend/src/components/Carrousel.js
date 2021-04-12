@@ -72,7 +72,7 @@ const Carrousel = (props) => {
           
           return (
             
-              <div key={citys.city} className="photo" style = {{backgroundImage:`url(${citys.path})`,width:"37vw", height:"40vh",margin:"1vh",backgroundSize:"cover"}}>
+              <div key={citys.city} className="photo" style = {{backgroundImage:`url(${citys.path})`,width:"37vw",height:"42vh",margin:"1vh",backgroundSize:"cover"}}>
                 <h2 className="photo-name">{citys.city}</h2>
               </div>
         
