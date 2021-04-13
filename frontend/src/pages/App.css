@@ -105,7 +105,8 @@ header{
     color: white;
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
-    padding: 20px;
+    z-index:- 1;
+    
 }
 
 .social{
@@ -214,12 +215,9 @@ header{
 }
 
 .page-city {
-    background-color:grey;
-    height: 100vh;
     color:white;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    
 }
 .page-404 {
     background-color:grey;
@@ -238,6 +236,13 @@ header{
     display: flex;
 }
 
+.city{
+  
+}
+
+
+
+
 
 
 @media only screen and (min-device-width : 300px) and (max-device-width : 800px) {
@@ -249,12 +254,19 @@ header{
         font-size: 4rem;
     }
     .p-title{
-        font-size: 2rem;
+        font-size: 1.5rem;
+        margin: 1vh;
     }
-   
+
+    .footer{
+        display: flex;
+        align-content: center;
+        align-items:center;
+    }
     .link{
         margin: 1vh;
-        font-size: 15px;
+        font-size: 2vh;
+        display: flex;
     }
     .container-title{
         height: 60vh;
@@ -263,7 +275,7 @@ header{
         font-size: 2rem;
     }
     .photo-name{
-        font-size: 1rem;
+        font-size: 2rem;
     }
     .photo{
         width: 98vw !important;
@@ -273,6 +285,7 @@ header{
         flex-direction: column;
         align-items: center;    
     }
+
 
 }
 
