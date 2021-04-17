@@ -7,6 +7,7 @@ import Cmpt404 from './pages/404'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header'
 import Footer from './components/Footer'
+import City from './components/City'
 
 
 class App extends React.Component{  
@@ -17,6 +18,7 @@ class App extends React.Component{
         <Switch>
           <Route exact path="/" component= {Home}/>
           <Route exact path="/cities" component= {Cities}/>
+          <Route exact path="/city/:id" component={City} />
           <Route path="/error" component= {Cmpt404} />
           <Redirect to ="/error"/>
         </Switch>

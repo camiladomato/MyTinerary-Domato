@@ -1,25 +1,22 @@
 import React from'react'
 import Itineraries from '../components/Itineraries'
-import Filtro from '../components/filtro'
-
+import HeroCities from '../components/HeroCities'
 
 
 class Cities extends React.Component{
  render(){
     return (
-    <div>
         
-            <div className="city" >  
-            <Itineraries/>
-            <Filtro/>
-
-            </div>
-      
-    </div>
-
+         <div>
+           
+                <HeroCities/>
+            
+                <Itineraries/>
+            
+         </div>
+        
         )
-    }
-         
+    }     
 }
 
 export default Cities

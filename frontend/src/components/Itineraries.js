@@ -1,32 +1,48 @@
-import React from 'react'
+import React ,{useState, useEffect} from 'react';
+import axios from "axios";
+import{NavLink} from 'react-router-dom'
 
 
-const citys = [
   
-    {id:1, city:"Rome", path:'../assets/rom.jpg' },
-    {id:2,city:"Cancun", path:"../assets/cancun.jpg"},
-    {id:3,city:"Ibiza" ,path:"../assets/ibiza.jpg" },
-    {id:4,city:"New York", path:"../assets/ny.jpg"},   
-    {id:5,city:"LA", path:"../assets/eeuu.jpg"},
-    {id:6,city:"Tokio", path:"../assets/tokio.jpg"},
-    {id:7,city:"Paris" ,path:"../assets/paris.jpg"},
-    {id:8,city:"Amsterdam", path:"../assets/amsterdam.jpg"}, 
-    {id:9,city:"Barcelona", path:"../assets/barcelona.jpg"},
-    {id:10,city:"Milan", path:"../assets/milan.jpg"},
-    {id:11,city:"Buenos Aires" ,path:"../assets/buenosaires.jpg"},
-    {id:12,city:"Berlin", path:"../assets/berlin.jpg"}, 
+  const Filtro=() => {
+   
+    const [ciudades,setCiudades] = useState([]) // es un hook
+    const [ciudadesFiltradas,setCiudadesFiltradas] = useState([])
+    const [buscar,setBuscar]= useState([])
+    
+    useEffect(()=>{
+        axios.get('http://localhost:4000/api/cities') //recibo una promesa y lo convierte de json
+        .then(response => setCiudades(response.data.response)) //lo que recibi de controllers
+        //.catch(error)//error
+    },[]) 
         
-  ];
+    useEffect(() =>{
+        setCiudadesFiltradas(
+            ciudades.filter(ciudad =>{ return ciudad.city.toLowerCase().indexOf(buscar.toString().toLowerCase().trim() ) === 0})
+            )},[buscar,ciudades])
+    return(
+        <>
+            <div className="buscador">
+                <input type="text" id="buscar" placeholder="Search here!" onChange ={e => setBuscar (e.target.value)}/>
+            </div>
+              <div className="page-cities">
+              {ciudadesFiltradas.length === 0
+                ? <h1>No hay</h1>
+                : ciudadesFiltradas.map((ciudad) =>{
+                return(
+                       <NavLink to = {`/city/${ciudad._id}`}>
+                            <div className="photo-cities" style = {{backgroundImage:`url(${ciudad.path})`,width:"32vw",height:"30vh",margin:"1vh",backgroundSize:"cover"}}>
+                                <h1>{ciudad.city} </h1>
+                            </div>
+                       </NavLink>
+                        
+                    )})}
+                    
+              </div>
+         </>     
+                 )
+}
 
-  const Itineraries=()=>{
-    return (citys.map((city) => {
-        console.log(city.id)
-        return(
-<div  className="photo" style = {{backgroundImage:`url(${city.path})`,width:"37vw",height:"42vh",margin:"1vh",backgroundSize:"cover"}}>
-                <h2 className="photo-name">{city.city}</h2>
-              </div>        );
-      })
-    ) 
-  } 
-  export default Itineraries;
+
+export default Filtro 
 
