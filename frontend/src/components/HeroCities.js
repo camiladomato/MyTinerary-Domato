@@ -15,7 +15,7 @@ const HeroCities =()=>{
                         <img src="../assets/logo4.png" alt=" " className="logo" ></img>
                         <h1 className="title">MyTinerary</h1>
                     </div>
-                        <p className="p-title">cities!</p>
+                        <p className="p-title">Cities!</p>
                 </div>
         </main>
     )

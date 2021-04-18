@@ -27,13 +27,11 @@ import{NavLink} from 'react-router-dom'
             </div>
               <div className="page-cities">
               {ciudadesFiltradas.length === 0
-                ? <h1 className="ops">
-                Oops! no result found ...
-                try again</h1>
+                ? <h1 className="ops">Oops! no result found ...try again</h1>
                 : ciudadesFiltradas.map((ciudad) =>{
                 return(
                        <NavLink to = {`/city/${ciudad._id}`} className="city-select">
-                            <div style = {{backgroundImage:`url(${ciudad.path})`,width:"32vw",height:"30vh",margin:"1vh",backgroundSize:"cover"}}>
+                            <div id="select-image" style = {{backgroundImage:`url(${ciudad.path})`,width:"35vw",height:"36vh",margin:"1vh",backgroundSize:"cover"}}>
                                 <h1 className="title-cities">{ciudad.city} </h1>
                             </div>
                        </NavLink>

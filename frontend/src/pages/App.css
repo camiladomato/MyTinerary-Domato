@@ -270,6 +270,7 @@ header{
     display: flex;
     justify-content: center;
     padding: 3vh;
+    height: 6rem;
 } 
 
 .city-image{
@@ -319,7 +320,11 @@ header{
     text-align: center;
     font-size: 6vh;
     padding: 4vh;
-    background-color: rgba(0,0,0,.6); 
+    background-color: rgba(0,0,0,.6);
+    position: fixed;
+    width: 100%;
+    z-index:1;
+    margin-top: 25vh; 
 }
 
 .ops{
@@ -333,7 +338,7 @@ header{
 
 
 
-@media only screen and (min-device-width : 300px) and (max-device-width : 800px) {
+@media only screen and (min-device-width : 400px) and (max-device-width : 800px) {
     .header{
         justify-content: space-between;
     }
@@ -360,7 +365,8 @@ header{
         height: 60vh;
     }
     .txt-call{
-        font-size: 2rem;
+        font-size: 1.5rem;
+        padding: 0;
     }
     .photo-name{
         font-size: 2rem;
@@ -372,6 +378,20 @@ header{
         flex-wrap: nowrap;
         flex-direction: column;
         align-items: center;    
+    }
+
+   
+    #select-image{
+      width: 95vw !important;
+    }
+    #city-info{
+        width: 97vw !important;
+    }
+    .info{
+        font-size: 1.5rem;
+    }
+    #callTo{
+    padding:0;
     }
 
 

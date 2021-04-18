@@ -18,7 +18,7 @@ return(
             <video autoPlay loop muted id="video2">
                 <source src={backgroundVideo} type="video/mp4"></source>
             </video>
-            <div style = {{backgroundImage:`url(${ciudad.path})`,width:"32vw",height:"30vh",margin:"1vh",backgroundSize:"cover"}}>
+            <div id="city-info" style = {{backgroundImage:`url(${ciudad.path})`,width:"32vw",height:"30vh",margin:"1vh",backgroundSize:"cover"}}>
                 <h1 className="title-city">{ciudad.city}</h1>
             </div>
             <div className="under-c">
