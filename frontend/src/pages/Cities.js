@@ -6,18 +6,12 @@ import HeroCities from '../components/HeroCities'
 class Cities extends React.Component{
  render(){
     return (
-        
          <div>
-           
-                <HeroCities/>
-            
-                <Itineraries/>
-            
+            <HeroCities/>
+            <Itineraries/>
          </div>
-        
         )
     }     
 }
-
 export default Cities
 

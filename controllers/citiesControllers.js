@@ -25,8 +25,8 @@ const citiesControllers = {
     }, //uso el metodo json y envio el objeto/s con 2 propiedades respose(prop):allcities(valor).
     cargarNuevaCiudad:async (req,res) =>{
         console.log(req.body)
-        const {city, path, country} = req.body
-        const cargarCities = new City ({city:city, path:path, country:country})  
+        const {city, path, country, info} = req.body
+        const cargarCities = new City ({city:city, path:path, country:country, info: info})  
         await cargarCities.save()
         res.json({success:true , response:cargarCities})
 

@@ -6,7 +6,6 @@ const app = express()
 
 require('./config/database')
 
-
 app.use(cors())
 app.use(express.json())//lo desconvierte de json
 app.use("/api",router) //entra a api y al router , me lleva al index.js

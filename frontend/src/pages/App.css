@@ -67,13 +67,14 @@ header{
     font-size: 7rem;
     margin-top: 10rem;
     text-shadow: 2px 2px 2px black;
-    color: white;  
+    color: white;   
 }
 
 .p-title{
      font-size: 3rem;
      text-shadow: 2px 2px 2px black;
-     color: white; 
+     color: white;
+     background-color: rgba(0,0,0,.1); 
 
 }
 .title-logo{
@@ -96,8 +97,8 @@ header{
     font-family: 'Montserrat', sans-serif;
     text-shadow: 2px 2px 2px black;
     background-color: rgba(0,0,0,.616);
+}
 
-} 
 .img-city{
     width: 6vw;
 } 
@@ -110,8 +111,7 @@ header{
     color: white;
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
-    z-index:- 1;
-    
+    z-index:- 1;  
 }
 
 .social{
@@ -132,8 +132,7 @@ header{
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
     filter: gray;
-    font-size:1rem;
-     
+    font-size:1rem;   
 }
 
 .photo:hover{
@@ -161,9 +160,7 @@ header{
     color: white;
     font-size:1rem;
     font-family: 'Montserrat', sans-serif;
-
 }
-
 
 #callTo{
     display: flex;
@@ -190,6 +187,7 @@ header{
     font-size: 2rem;
     font-family: 'Ubuntu', sans-serif;
     text-shadow: 2px 2px 2px black;
+    background-color: rgba(0,0,0,.1); 
 }
 
 .txt{
@@ -271,10 +269,67 @@ header{
 .buscador{
     display: flex;
     justify-content: center;
+    padding: 3vh;
 } 
 
+.city-image{
+    display:flex ;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 15vh;
+}
 
+.info{
+    font-size: 2rem;
+    font-family: 'Ubuntu', sans-serif;
+    text-shadow: 2px 2px 2px black;
+    color:white;
+    padding: 5rem;
+}
+#callTo2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+} 
+.title-city{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1vh;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 2px 2px 2px black;
+    background-color: rgba(0,0,0,.616);
+}
 
+.title-cities{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 2px 2px 2px black;
+    background-color: rgba(0,0,0,.616);
+    text-align: center;
+}
+.under-c{
+    background-color: black;
+    color: white;
+    width: 30vw;
+    font-family: 'Ubuntu', sans-serif;
+    text-shadow: 2px 2px 2px black;
+    text-align: center;
+    font-size: 6vh;
+    padding: 4vh;
+    background-color: rgba(0,0,0,.6); 
+}
+
+.ops{
+    color:white;
+    font-family: 'Ubuntu', sans-serif;
+    text-shadow: 2px 2px 2px black;
+    text-align: center;
+    padding: 40vh;
+    background-color: rgba(0,0,0,.6);
+}
 
 
 
