@@ -6,14 +6,13 @@ import{NavLink} from 'react-router-dom'
   
   const Filtro=() => {
    
-    const [ciudades,setCiudades] = useState([]) // es un hook
+    const [ciudades,setCiudades] = useState([]) 
     const [ciudadesFiltradas,setCiudadesFiltradas] = useState([])
     const [buscar,setBuscar]= useState([])
     
     useEffect(()=>{
-        axios.get('http://localhost:4000/api/cities') //recibo una promesa y lo convierte de json
-        .then(response => setCiudades(response.data.response)) //lo que recibi de controllers
-        //.catch(error)//error
+        axios.get('http://localhost:4000/api/cities') 
+        .then(response => setCiudades(response.data.response)) 
     },[]) 
         
     useEffect(() =>{
@@ -27,12 +26,12 @@ import{NavLink} from 'react-router-dom'
             </div>
               <div className="page-cities">
               {ciudadesFiltradas.length === 0
-                ? <h1 className="ops">Oops! no result found ...try again</h1>
+                ? <h1 className="ops">Oops! no results found ...Please try again</h1>
                 : ciudadesFiltradas.map((ciudad) =>{
                 return(
-                       <NavLink to = {`/city/${ciudad._id}`} className="city-select">
-                            <div id="select-image" style = {{backgroundImage:`url(${ciudad.path})`,width:"35vw",height:"36vh",margin:"1vh",backgroundSize:"cover"}}>
-                                <h1 className="title-cities">{ciudad.city} </h1>
+                       <NavLink to = {`/city/${ciudad._id}`} className="city-select" key={ciudad._id} >
+                            <div id="select-image" key={ciudad.path} style = {{backgroundImage:`url(${ciudad.path})`,width:"35vw",height:"36vh",margin:"1vh",backgroundSize:"cover"}}>
+                                <h1 key={ciudad.city} className="title-cities">{ciudad.city} </h1>
                             </div>
                        </NavLink>
                         
@@ -42,7 +41,6 @@ import{NavLink} from 'react-router-dom'
          </>     
                  )
 }
-
 
 export default Filtro 
 

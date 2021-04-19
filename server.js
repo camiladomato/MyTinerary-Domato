@@ -7,8 +7,7 @@ const app = express()
 require('./config/database')
 
 app.use(cors())
-app.use(express.json())//lo desconvierte de json
-app.use("/api",router) //entra a api y al router , me lleva al index.js
+app.use(express.json())
+app.use("/api",router) 
 app.listen(4000, () => console.log ('App listenning on port 4000'))
 
-//.use entra a cualquiera de los metodos (get , post , put , delete)

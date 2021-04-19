@@ -18,9 +18,7 @@ const HeroCities =()=>{
                         <p className="p-title">Cities!</p>
                 </div>
         </main>
-    )
-
-        
+    )   
 }
 
 export default HeroCities

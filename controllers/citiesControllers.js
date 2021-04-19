@@ -1,34 +1,17 @@
 const City = require('../models/Cities')
 
-var cities = [ 
-    {city:"Rome", path:'../assets/rom.jpg',country:""  },
-    {city:"Cancun", path:"../assets/cancun.jpg",country:""},
-    {city:"Ibiza" ,path:"../assets/ibiza.jpg" ,country:""},
-    {city:"New York", path:"../assets/ny.jpg",country:""},   
-    {city:"LA", path:"../assets/eeuu.jpg",country:""},
-    {city:"Tokio", path:"../assets/tokio.jpg",country:""},
-    {city:"Paris" ,path:"../assets/paris.jpg",country:""},
-    {city:"Amsterdam", path:"../assets/amsterdam.jpg",country:""}, 
-    {city:"Barcelona", path:"../assets/barcelona.jpg",country:""},
-    {city:"Milan", path:"../assets/milan.jpg",country:""},
-    {city:"Buenos Aires" ,path:"../assets/buenosaires.jpg",country:""},
-    {city:"Toronto", path:"../assets/toronto.jpeg",country:""},
-    {city:"Berlin", path:"../assets/berlin.jpg",country:""}, 
-    {city:"Chicago", path:"../assets/chicago.jpg",country:""}, 
-    {city:"Londres", path:"../assets/londres.jpg",country:""},  
-    ]
 
 const citiesControllers = {
-    obtenerCiudades:async (req,res) =>{ //req consulta requerida , res respuesta 
-        const allCities = await City.find() //busca el modelo city .. con la caracteristica del parametro , en este caso todas por (vacio)
-        res.json({response : allCities , sucess: true})//me responde un  array de objetos y lo guardo en la const all cities
-    }, //uso el metodo json y envio el objeto/s con 2 propiedades respose(prop):allcities(valor).
+    obtenerCiudades:async (req,res) =>{ 
+        const allCities = await City.find() 
+        res.json({response : allCities , sucess: true})
+    },
     cargarNuevaCiudad:async (req,res) =>{
         console.log(req.body)
         const {city, path, country, info} = req.body
         const cargarCities = new City ({city:city, path:path, country:country, info: info})  
         await cargarCities.save()
-        res.json({success:true , response:cargarCities})
+        res.json({response:cargarCities , success:true })
 
     },
     borrarCiudad:async (req,res) =>{
@@ -50,10 +33,5 @@ const citiesControllers = {
     }
 
 }
-     
-   
-
-
-    
-
+       
 module.exports = citiesControllers 
