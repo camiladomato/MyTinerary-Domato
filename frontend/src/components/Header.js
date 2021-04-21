@@ -1,11 +1,9 @@
 import React from 'react' 
 import{NavLink} from 'react-router-dom'
 
-
 const Header=()=>{
     return(
     <header className="nav-h" >
-                
                 <div className="enlaces">
                     <NavLink exact to="/"><h2 className="link">Home</h2></NavLink>
                     <NavLink exact to="/Cities"><h2 className="link">Cities</h2></NavLink>
@@ -18,6 +16,5 @@ const Header=()=>{
     </header>
     )
 }
-
 export default Header
 

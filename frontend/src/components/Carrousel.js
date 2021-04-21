@@ -41,7 +41,6 @@ const Carrousel = (props) => {
     const nextIndex = activeIndex === cities.length - 1 ? 0 : activeIndex + 1;
     setActiveIndex(nextIndex);
   }
-
   const previous = () => {  
     if (animating) return;
     const nextIndex = activeIndex === 0 ? cities.length - 1 : activeIndex - 1;

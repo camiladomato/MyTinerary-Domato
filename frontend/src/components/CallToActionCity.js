@@ -1,9 +1,7 @@
 import React from 'react' 
 import{NavLink} from 'react-router-dom'
 
-
 const CallToActionCity=()=>{
-
   return (
   <div id="callTo2">
       <NavLink exact to="/Cities"  className="Call">
@@ -11,7 +9,5 @@ const CallToActionCity=()=>{
       </NavLink>
   </div>
   )
-
 }
-
 export default CallToActionCity

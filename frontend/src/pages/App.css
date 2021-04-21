@@ -262,6 +262,12 @@ header{
     object-fit: cover ;
     top:0;
 }
+#fondo-city{
+    position: fixed;
+    z-index:-1;
+    width: 40;
+    height:100%;
+}
 #buscar{
     width:40vw;
 }

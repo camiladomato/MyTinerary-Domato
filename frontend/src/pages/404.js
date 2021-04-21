@@ -1,8 +1,5 @@
 import React from 'react'
 
-
-
-
 const Cmpt404 = () => {
     return(
     <div>

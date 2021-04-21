@@ -9,7 +9,6 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import City from './components/City'
 
-
 class App extends React.Component{  
   render(){
     return(  
@@ -27,7 +26,6 @@ class App extends React.Component{
      )
   }
 }
-
 export default App
 
 

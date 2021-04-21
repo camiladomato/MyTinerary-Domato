@@ -1,11 +1,8 @@
 import React from 'react'
 import backgroundVideo from './video/paisaje.mp4'
 
-
 const HeroCities =()=>{
-   
     return(
-    
         <main className="container-title-cities">
             <video autoPlay loop muted id="video2">
                 <source src={backgroundVideo} type="video/mp4"></source>
@@ -20,5 +17,4 @@ const HeroCities =()=>{
         </main>
     )   
 }
-
 export default HeroCities

@@ -12,7 +12,5 @@ const CallToAction=()=>{
       </NavLink>
   </div>
   )
-
 }
-
 export default CallToAction
