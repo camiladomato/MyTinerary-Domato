@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react';
 import CallToActionCity from '../components/CallToActionCity'
 
 const City =(props) => {
-    const[ciudad,setCiudad] = useState([])/
+    const[ciudad,setCiudad] = useState([])
     const citySelect = props.match.params.id 
     
     useEffect(() => { 
