@@ -4,14 +4,13 @@ import {useState, useEffect} from 'react';
 import CallToActionCity from '../components/CallToActionCity'
 
 const City =(props) => {
-    const[ciudad,setCiudad] = useState([])// inicio el estado de ciudad en un array vacio(variable y funcion de variable modificadora)
-    const citySelect = props.match.params.id  //captura la ciudad a mostrar
+    const[ciudad,setCiudad] = useState([])/
+    const citySelect = props.match.params.id 
     
-    useEffect(() => {  //me da la posibilidad de manejar el ciclo de vida en componentes funcionales
-  //recibe 2 parametros- funcion callback-
-        axios.get("http://localhost:4000/api/city/"+ citySelect) //pedido al backend cambiando la barra de navegacion
-        .then(respuesta=>setCiudad(respuesta.data.response))//una vez que trae la promesa me da el objeto con el . accedo a la propiedad dat de respuesta  
-    },[citySelect])// renderizate cuando se monta (llama su padre)
+    useEffect(() => { 
+        axios.get("http://localhost:4000/api/city/"+ citySelect) 
+        .then(respuesta=>setCiudad(respuesta.data.response))
+    },[citySelect])
 
 return(
       <div className="city-image" style ={{backgroundImage:'url("/assets/viajar.jpeg")'}}>
