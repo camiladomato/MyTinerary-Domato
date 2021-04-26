@@ -281,17 +281,21 @@ header{
 
 .city-image{
     display:flex ;
-    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    justify-items: center;
     padding-top: 15vh;
 }
 
 .info{
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-family: 'Ubuntu', sans-serif;
     text-shadow: 2px 2px 2px black;
     color:white;
     padding: 5rem;
+    width: 50%;
+    background-color: rgba(0,0,0,.616);
+    
 }
 #callTo2{
     display: flex;
@@ -317,21 +321,6 @@ header{
     background-color: rgba(0,0,0,.616);
     text-align: center;
 }
-.under-c{
-    background-color: black;
-    color: white;
-    width: 30vw;
-    font-family: 'Ubuntu', sans-serif;
-    text-shadow: 2px 2px 2px black;
-    text-align: center;
-    font-size: 6vh;
-    padding: 4vh;
-    background-color: rgba(0,0,0,.6);
-    position: fixed;
-    width: 100%;
-    z-index:1;
-    margin-top: 25vh; 
-}
 
 .ops{
     color:white;
@@ -342,9 +331,44 @@ header{
     background-color: rgba(0,0,0,.6);
 }
 
+.itinerary{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0,0,0,.616);
+    color:white;
+    text-shadow: 2px 2px 2px black;
+    margin: 10vh;
+    padding: 2vh ;
+}
+
+.icono{
+    width: 5vh;
+}
+.imagenes-iti{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top:7vh;
+}
+.under-c{
+    color:black;
+}
+.txt-dont{
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+}
+.fondo-city-itinerario{
+    background-color:rgb(205, 227, 245);
+    
+}
 
 
-@media only screen and (min-device-width : 400px) and (max-device-width : 800px) {
+@media only screen and (min-device-width : 350px) and (max-device-width : 800px) {
     .header{
         justify-content: space-between;
     }
@@ -398,6 +422,27 @@ header{
     }
     #callTo{
     padding:0;
+    }
+
+    .city-image{
+        display: flex;
+        flex-direction: column;
+    }
+    .info{
+        width:60vh;
+        font-size: 2vh;
+    }
+    .imagenes-iti{
+        flex-wrap: nowrap;
+        flex-direction: column;
+        align-items: center;    
+    }
+    .itinerary{
+        width: 95vw !important;
+    }
+    .foto-itinerario{
+        width: 60vw !important;
+        height: 30vh!important;
     }
 
 

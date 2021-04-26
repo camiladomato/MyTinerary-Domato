@@ -1,16 +1,25 @@
 import React from'react'
-import Itineraries from '../components/Itineraries'
+import CitiesFilter from '../components/CitiesFilter'
 import HeroCities from '../components/HeroCities'
+import {connect} from 'react-redux';
+import citiesAction from '../redux/actions/citiesActions';
 
 class Cities extends React.Component{
- render(){
+ componentDidMount(){
+    this.props.cargarCiudades();
+   }
+ 
+   render(){
     return (
-         <div>
+         <>
             <HeroCities/>
-            <Itineraries/>
-         </div>
+            <CitiesFilter/>
+         </>
         )
     }     
 }
-export default Cities
+const mapDispatchToProps = {
+   cargarCiudades:citiesAction.cargarCities
+}  
+export default connect (null , mapDispatchToProps) (Cities)
 

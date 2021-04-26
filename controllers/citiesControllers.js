@@ -1,12 +1,11 @@
 const City = require('../models/Cities')
 
 const citiesControllers = {
-    obtenerCiudades:async (req,res) =>{ 
+    obtenerCiudades:async (req,res) =>{
         const allCities = await City.find() 
         res.json({response : allCities , sucess: true})
     }, 
     cargarNuevaCiudad:async (req,res) =>{
-        console.log(req.body)
         const {city, path, country, info} = req.body 
         const cargarCities = new City ({city:city, path:path, country:country, info: info})  
         await cargarCities.save()
@@ -19,7 +18,6 @@ const citiesControllers = {
        
     },
     actualizarCiudad:async (req,res) =>{
-        console.log(req)
         const idAModificar = req.params.id
         const cities = await City.findOneAndUpdate({_id:idAModificar},{...req.body},{new:true})
         res.json({response:cities, success:true}) 

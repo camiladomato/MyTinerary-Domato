@@ -7,6 +7,6 @@ const citySchema = new mongoose.Schema({
     info: {type: String , required: true} 
 })
 
-const City = mongoose.model('city',citySchema)
+const City = mongoose.model('city',citySchema);
 
 module.exports = City
