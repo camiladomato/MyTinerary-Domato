@@ -65,7 +65,7 @@ const City =(props) => {
                             </Card.Body>
                         </Accordion.Collapse>
                         <Accordion.Toggle as={Card.Header} eventKey="1" onClick={() => setPropiedad(!propiedad)}>
-                            {propiedad ? "View more..." : "View less..."}
+                            {propiedad ? "View more..." : "View less..."} //si la propiedad es true ....si es false... 
                         </Accordion.Toggle>
                     </Card>
                 </Accordion>

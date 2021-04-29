@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header'
 import Footer from './components/Footer'
 import City from './components/City'
+import Formularios from './pages/Formularios'
 
 
 class App extends React.Component{  
@@ -17,8 +18,9 @@ class App extends React.Component{
       <Header/>
         <Switch>
           <Route exact path="/" component= {Home}/>
-          <Route exact path="/cities" component= {Cities}/>
-          <Route exact path="/city/:id" component={City} />
+          <Route path="/cities" component= {Cities}/>
+          <Route path="/city/:id" component={City} />
+          <Route path="/formularios/:cambiar" component={Formularios}/>
           <Route path="/error" component= {Cmpt404} />
           <Redirect to ="/error"/>
         </Switch>
