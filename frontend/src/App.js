@@ -8,11 +8,23 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header'
 import Footer from './components/Footer'
 import City from './components/City'
-import Formularios from './pages/Formularios'
+import SignIn from './components/SignIn'
+import SignUp from './components/SignUp'
+import { connect } from 'react-redux'
+import userActions from './redux/actions/userActions'
 
 
-class App extends React.Component{  
+class App extends React.Component{
   render(){
+    if (!this.props.userLogged && localStorage.getItem('token')){
+      const datosUser= JSON.parse(localStorage.getItem('userLogged'))
+      const userLS={
+        token:localStorage.getItem('token'),
+        ...datosUser
+      }
+      this.props.loginForzadoPorLocalS(userLS)
+      return null
+    }
     return(  
     <BrowserRouter>
       <Header/>
@@ -20,8 +32,9 @@ class App extends React.Component{
           <Route exact path="/" component= {Home}/>
           <Route path="/cities" component= {Cities}/>
           <Route path="/city/:id" component={City} />
-          <Route path="/formularios/:cambiar" component={Formularios}/>
-          <Route path="/error" component= {Cmpt404} />
+          {!this.props.userLogged && <Route path="/signin" component={SignIn}/>}
+          {!this.props.userLogged && <Route path="/signup" component={SignUp}/>}
+          <Route path="/error" component= {Cmpt404}/>
           <Redirect to ="/error"/>
         </Switch>
       <Footer/> 
@@ -29,7 +42,15 @@ class App extends React.Component{
      )
   }
 }
-export default App
+const mapStateToProps = state =>{
+  return{
+    userLogged: state.userLogged}
+}
+const mapDispatchToProps ={
+  loginForzadoPorLocalS: userActions.loginForzadoPorLocalS
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
 
 
 

@@ -366,28 +366,47 @@ header{
     background-color:rgb(205, 227, 245);
     
 }
-.formulario-signUp{
-    display: flex;
-    flex-direction: column;
-    padding-top: 20vh;
-    background-color:blueviolet;
-}
 
-.formulario-signIn{
+.formulario-signIn,.formulario-signUp{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 90vh;
     padding-top: 20vh;
-    background-color: aqua;
+    
+    
 }
 
-input ,button {
-    padding: 1vh 2vh;
-    
-    
+input,select , button{
+    padding: 1vh;
 }
+
+.title-form{
+    background-color: rgba(0,0,0,.3);
+    padding: 2vh;;
+}
+
+.sign-in , .sign-up{
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    top:0;
+    color:white;
+    text-shadow: 2px 2px 2px black;
+}
+
+.foto-user{
+    width: 5vh;
+    height: 5vh;
+    background-size: cover;
+    background-position: center;
+}
+    
+
 
 @media only screen and (min-device-width : 350px) and (max-device-width : 800px) {
     .header{

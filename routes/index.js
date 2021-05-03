@@ -3,6 +3,8 @@ const router = express.Router()
 const citiesControllers = require('../controllers/citiesControllers')
 const itinerariesControllers = require('../controllers/itinerariesControllers')
 const userControllers = require('../controllers/userControllers')
+const validator = require ('../config/validator')
+const passport = require ('passport')
 
 
 router.route('/cities')
@@ -30,6 +32,9 @@ router.route('/user/signin')
 .post(userControllers.loguearUsuario)
 
 router.route('/user/signup')
-.post(userControllers.cargarNuevoUsuario)
+.post(validator,userControllers.cargarNuevoUsuario)
+
+router.route('/user/loginLS/')
+.get(passport.authenticate('jwt',{session:false}),userControllers.loginForzado)
 
 module.exports = router

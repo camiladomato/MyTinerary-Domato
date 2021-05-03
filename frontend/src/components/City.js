@@ -7,8 +7,6 @@ import itineraryActions from '../redux/actions/itineraryActions';
 import {Accordion, Card} from 'react-bootstrap' 
 
 
-
-
 const City =(props) => {  
     console.log(props)
       
@@ -43,7 +41,7 @@ const City =(props) => {
         
         </div> 
         {!props.listaItinerary.length ? <h2 className="txt-dont">We don't have any itineraries yet!</h2>
-        : <div className="imagenes-iti" style={{backgroundImage:`url(/assets/viajar.jpeg)`}} > 
+        : <div className="imagenes-iti" style={{backgroundImage:`url(/assets/mapa.jpg)`}} > 
         {props.listaItinerary.map((itinerary)=>{
         return(
             <div className="itinerary">
@@ -52,9 +50,9 @@ const City =(props) => {
                         </div> 
                         <h3>{itinerary.authorName}</h3>
                             <div>
-                                <p>{Array(itinerary.price).fill(<img src="/assets/billete.png" className="icono"/>)} </p>
-                                <p>{Array(itinerary.duration).fill(<img src="/assets/reloj.png" className="icono"/>)} </p>
-                                <p><img src="/assets/megusta.png" className="icono"/>{itinerary.like}</p>
+                                <p>{Array(itinerary.price).fill(<img src="/assets/billete.png" alt="" className="icono"/>)} </p>
+                                <p>{Array(itinerary.duration).fill(<img src="/assets/reloj.png" alt="" className="icono"/>)} </p>
+                                <p><img src="/assets/megusta.png" className="icono" alt=""/>{itinerary.like}</p>
                             </div>
                         <h4 className="hashtag">{itinerary.hashtag}</h4>
                 <Accordion defaultActiveKey="0">
@@ -65,7 +63,7 @@ const City =(props) => {
                             </Card.Body>
                         </Accordion.Collapse>
                         <Accordion.Toggle as={Card.Header} eventKey="1" onClick={() => setPropiedad(!propiedad)}>
-                            {propiedad ? "View more..." : "View less..."} //si la propiedad es true ....si es false... 
+                            {propiedad ? "View more..." : "View less..."} 
                         </Accordion.Toggle>
                     </Card>
                 </Accordion>

@@ -1,20 +1,44 @@
 import React from 'react' 
 import{NavLink} from 'react-router-dom'
+import {connect}  from 'react-redux'
+import userActions from '../redux/actions/userActions'
 
-const Header=()=>{
-    return(
+const Header=(props)=>{
+    const usuario = props.userLogged 
+    ? props.userLogged.name
+    : ' '
+    const fotoUser = props.userLogged
+    ? props.userLogged.fotoUser
+    : '../assets/signup.png'
+    
+return(
     <header className="nav-h" >
                 <div className="enlaces">
                     <NavLink exact to="/"><h2 className="link">Home</h2></NavLink>
                     <NavLink exact to="/cities"><h2 className="link">Cities</h2></NavLink>
                 </div>
-                <div className="enlaces">
-                    <NavLink to="/formularios/signup"><h2 className="link">Sign Up</h2></NavLink>
-                    <NavLink to="/formularios/signin"><h2 className="link">Sign In</h2></NavLink>
-                    <img src="../assets/signup.png"  alt = " " className="user" ></img>
-                </div>       
+                <h3 className="link">¡Welcome{usuario}!</h3>
+               {!props.userLogged && (
+                    <div className="enlaces">
+                        <NavLink to="/signup"><h2 className="link">Sign Up</h2></NavLink>
+                        <NavLink to="/signin"><h2 className="link">Sign In</h2></NavLink>
+                    </div>
+                )}
+                {props.userLogged && <h2 className="link" onClick={props.desloguarUsuario}>sign Out</h2>}
+                    <div className="enlaces"> 
+                        <div className="foto-user" style= {{ backgroundImage :`url(${fotoUser})`}}></div> 
+                    </div>
     </header>
     )
 }
-export default Header
+const mapStateToProps = state => {
+    return {
+        userLogged : state.userLogged
+    }
+}
+const mapDispatchToProps ={
+    desloguarUsuario: userActions.desloguarUsuario
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (Header)
 
