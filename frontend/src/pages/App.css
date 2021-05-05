@@ -373,18 +373,18 @@ header{
     align-items: center;
     justify-content: center;
     height: 90vh;
-    padding-top: 20vh;
-    
-    
+    padding-top: 20vh;   
 }
 
-input,select , button{
+input,select,button{
     padding: 1vh;
+    width: 20vw;
 }
+
 
 .title-form{
     background-color: rgba(0,0,0,.3);
-    padding: 2vh;;
+    padding: 4vh;;
 }
 
 .sign-in , .sign-up{

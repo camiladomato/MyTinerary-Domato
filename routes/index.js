@@ -34,7 +34,7 @@ router.route('/user/signin')
 router.route('/user/signup')
 .post(validator,userControllers.cargarNuevoUsuario)
 
-router.route('/user/loginLS/')
+router.route('/user/loginLS')
 .get(passport.authenticate('jwt',{session:false}),userControllers.loginForzado)
 
 module.exports = router

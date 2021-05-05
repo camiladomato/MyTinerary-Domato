@@ -4,20 +4,21 @@ import {connect}  from 'react-redux'
 import userActions from '../redux/actions/userActions'
 
 const Header=(props)=>{
-    const usuario = props.userLogged 
-    ? props.userLogged.name
+    var usuario = props.userLogged
+    ? props.userLogged.usuario
     : ' '
-    const fotoUser = props.userLogged
+    var fotoUser = props.userLogged
     ? props.userLogged.fotoUser
     : '../assets/signup.png'
     
 return(
+     
     <header className="nav-h" >
                 <div className="enlaces">
                     <NavLink exact to="/"><h2 className="link">Home</h2></NavLink>
                     <NavLink exact to="/cities"><h2 className="link">Cities</h2></NavLink>
                 </div>
-                <h3 className="link">¡Welcome{usuario}!</h3>
+                <h3 className="link">¡Welcome {usuario} !</h3>
                {!props.userLogged && (
                     <div className="enlaces">
                         <NavLink to="/signup"><h2 className="link">Sign Up</h2></NavLink>
@@ -31,9 +32,10 @@ return(
     </header>
     )
 }
+
 const mapStateToProps = state => {
     return {
-        userLogged : state.userLogged
+        userLogged : state.user.userLogged
     }
 }
 const mapDispatchToProps ={

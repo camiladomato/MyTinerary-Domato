@@ -8,6 +8,7 @@ import userActions from '../redux/actions/userActions';
 const SignUp = (props) => {
     const [newUser,setNewUser] = useState ({name:"",lastName:"",email:"",password:"",urlImage:"",country:""})
     const [errores, setErrores] = useState ([])
+    
     const readInput= e => {
         const campo = e.target.name
         const valor = e.target.value
@@ -19,8 +20,8 @@ const SignUp = (props) => {
 
     const send = async (e = null , googleUser = null) => { 
         e && e.preventDefault()
-        let user = e ? user : googleUser
-        const respuesta = await props.crearUsuario(newUser)
+         var user = e ? newUser : googleUser
+        const respuesta = await props.crearUsuario(user)
         if (respuesta){
             setErrores(respuesta.details)
         }

@@ -6,20 +6,22 @@ const jwt = require('jsonwebtoken')
 const userControllers= {    
     cargarNuevoUsuario:async (req, res) => {
         const {name,lastName,email,password,urlImage,country} = req.body
+        console.log(req.body)
 
         const existingUser = await User.findOne({email})
 
+
         var respuesta
         var error
-        var userSave
+        var userSaved
 
-        password = bcryptjs.hashSync(password, 10)
+        var passwordHash = bcryptjs.hashSync(password, 10)
        
         if(!existingUser){
             try{
-                userSaved = new User({name,lastName,email,password,urlImage,country})
+                userSaved = new User({name,lastName,email,passwordHash,urlImage,country})
                 await userSaved.save()
-                const token = jwt.sign({...userSave}, process.env.SECRET_OR_KEY)
+                const token = jwt.sign({...userSaved}, process.env.SECRET_OR_KEY)
                 respuesta = token
                 }
             catch{
@@ -31,7 +33,7 @@ const userControllers= {
             }
         res.json({
             success:!error ? true : false,
-            respuesta:{token: respuesta , urlImage: userSave.urlImage , name: userSave.name},
+            respuesta:{token: respuesta , urlImage: userSaved.urlImage , name: userSaved.name},
             error: error
         }) 
     },
@@ -55,7 +57,7 @@ const userControllers= {
         } 
     res.json({
         success: !error ? true : false,
-        respuesta:{token: respuesta , urlImage: userSave.urlImage , name: userSave.name},
+        respuesta:{token: respuesta , urlImage: userSaved.urlImage , name: userSaved.name},
         error: error
         })
     },
