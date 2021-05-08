@@ -5,6 +5,9 @@ const itinerariesControllers = require('../controllers/itinerariesControllers')
 const userControllers = require('../controllers/userControllers')
 const validator = require ('../config/validator')
 const passport = require ('passport')
+const commentsControllers = require('../controllers/commentsControllers')
+const activitiesControllers = require ('../controllers/activityControllers')
+
 
 
 router.route('/cities')
@@ -36,5 +39,15 @@ router.route('/user/signup')
 
 router.route('/user/loginLS')
 .get(passport.authenticate('jwt',{session:false}),userControllers.loginForzado)
+
+router.route('/comentario/:id')
+.post(passport.authenticate('jwt',{session:false}),commentsControllers.cargarNuevoComentario )
+//.put(CommentsControllers.editarComentario)
+.delete(commentsControllers.borrarComentario)
+
+router.route('/activity')
+.post(activitiesControllers.cargarActividad)
+.get(activitiesControllers.obtenerTodasLasActividades)
+
 
 module.exports = router

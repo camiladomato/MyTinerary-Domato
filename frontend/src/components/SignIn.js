@@ -20,11 +20,12 @@ const SignIn = (props) => {
         e.preventDefault()
         var user = e ? userLoggedIn : googleUser
         props.loguearUsuario(user)
+        
        
     }
     const responseGoogle = (response) => {
         if(response.profileObj.email){
-            sendForm(null,{email: response.profileObj , password: 'a'+response.profileObj.googleId}) 
+            sendForm(null,{email: response.profileObj , password: 'a'+ response.profileObj.googleId}) 
         }
         else{
             alert("error inesperado")

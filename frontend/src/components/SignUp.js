@@ -6,6 +6,7 @@ import userActions from '../redux/actions/userActions';
 
 
 const SignUp = (props) => {
+ 
     const [newUser,setNewUser] = useState ({name:"",lastName:"",email:"",password:"",urlImage:"",country:""})
     const [errores, setErrores] = useState ([])
     
@@ -23,13 +24,13 @@ const SignUp = (props) => {
          var user = e ? newUser : googleUser
         const respuesta = await props.crearUsuario(user)
         if (respuesta){
-            setErrores(respuesta.details)
+            setErrores(respuesta)
         }
        
     }
     const responseGoogle = (response) => {
        const {givenName,familyName,email,googleId,imageUrl} = response.profileObj
-       send({name: givenName, lastName: familyName , email: email ,password: googleId , urlImage:imageUrl, country: givenName}) 
+       send({name: givenName, lastName: familyName , email: email ,password: googleId , imageUrl:imageUrl, country: givenName}) 
     }
 
     var paises = ["Russia","Argentine","France","Spain","United States","Germany","Italy","Mexico"] 

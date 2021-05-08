@@ -5,11 +5,13 @@ import citiesAction from '../redux/actions/citiesActions';
 import {useEffect,useState} from 'react'
 import itineraryActions from '../redux/actions/itineraryActions';
 import {Accordion, Card} from 'react-bootstrap' 
+import Comments from './Comments';
+import Activities from '../components/Activities'
+
 
 
 const City =(props) => {  
-    console.log(props)
-      
+     
     const [citySelect, setCitySelect] = useState(null)
     const [propiedad,setPropiedad] = useState(true)
    
@@ -43,6 +45,7 @@ const City =(props) => {
         {!props.listaItinerary.length ? <h2 className="txt-dont">We don't have any itineraries yet!</h2>
         : <div className="imagenes-iti" style={{backgroundImage:`url(/assets/mapa.jpg)`}} > 
         {props.listaItinerary.map((itinerary)=>{
+            console.log(itinerary)
         return(
             <div className="itinerary">
                         <h2>{itinerary.title}</h2>
@@ -59,12 +62,16 @@ const City =(props) => {
                     <Card>
                         <Accordion.Collapse eventKey="1">
                             <Card.Body>
-                                <h3 className="under-c">Under Construction</h3>
+                                <Activities />
+                                 <Comments comentarios={itinerary}/>
                             </Card.Body>
+                            
                         </Accordion.Collapse>
                         <Accordion.Toggle as={Card.Header} eventKey="1" onClick={() => setPropiedad(!propiedad)}>
-                            {propiedad ? "View more..." : "View less..."} 
-                        </Accordion.Toggle>
+                            {propiedad ? "View more..." : "View less..."}
+                           
+                            </Accordion.Toggle>
+                       
                     </Card>
                 </Accordion>
 
@@ -83,6 +90,7 @@ const City =(props) => {
 }
 
 const mapStateToProps = state =>{
+    console.log(state)
     return{
         listaCities: state.city.cities,
         listaItinerary: state.itinerary.itinerarios    

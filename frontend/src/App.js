@@ -14,17 +14,20 @@ import { connect } from 'react-redux'
 import userActions from './redux/actions/userActions'
 
 
+
 class App extends React.Component{
   render(){
-    if (!this.props.userLogged && localStorage.getItem('token')){
-      const datosUser= JSON.parse(localStorage.getItem('userLogged'))
-      const userLS={
+  
+ if (!this.props.userLogged && localStorage.getItem('token')){      
+  var datosUser=this.props.loginForzadoPorLocalS(JSON.parse(localStorage.getItem('userLogged')))
+      var userLS ={
         token:localStorage.getItem('token'),
         ...datosUser
       }
-      this.props.loginForzadoPorLocalS(userLS)
-      return null
+     this.props.loginForzadoPorLocalS(userLS)
     }
+   
+   
     return(  
     <BrowserRouter>
       <Header/>

@@ -4,11 +4,12 @@ import {connect}  from 'react-redux'
 import userActions from '../redux/actions/userActions'
 
 const Header=(props)=>{
+   
     var usuario = props.userLogged
-    ? props.userLogged.usuario
+    ? props.userLogged.name
     : ' '
     var fotoUser = props.userLogged
-    ? props.userLogged.fotoUser
+    ? props.userLogged.urlImage
     : '../assets/signup.png'
     
 return(

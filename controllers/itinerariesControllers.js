@@ -18,7 +18,7 @@ const itinerariesControllers = {
     },
     actualizarItinerario:async (req,res) =>{
         const idAModificar = req.params.id
-        const itinerarios = await Itinerary.findOneAndUpdate({_id:idAModificar},req.body,{new:true})
+        const itinerarios = await Itinerary.findOneAndUpdate({_id:idAModificar},req.body,{new:true}) 
         res.json({response: itinerarios, success:true}) 
     },
     buscarItinerarioPorId:async (req,res) =>{

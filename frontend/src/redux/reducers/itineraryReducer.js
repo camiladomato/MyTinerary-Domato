@@ -1,5 +1,6 @@
 const initialState ={
     itinerarios: [],
+    actividades: [],
 }
 
 const itineraryReducer = (state = initialState , action) => {
@@ -8,6 +9,11 @@ const itineraryReducer = (state = initialState , action) => {
             return {
                 ...state,
                 itinerarios: action.payload
+            }
+        case 'CARGAR_ACTIVIDADES':
+            return{
+                ...state,
+                actividades: action.payload
             }
         
         default: 

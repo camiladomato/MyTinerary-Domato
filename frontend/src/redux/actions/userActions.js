@@ -5,7 +5,7 @@ const userActions={
         return async(dispatch, getState)=>{
             const respuesta = await axios.post('http://localhost:4000/api/user/signup', newUser)
             if(!respuesta.data.success){
-               alert(respuesta.data.error)
+               return respuesta.data.errores
             }
             dispatch({
                 type:'LOG_USER',
@@ -14,9 +14,10 @@ const userActions={
         }
 
     },
-    loguearUsuario:(userLoggedIn) => {
+    loguearUsuario:(userLogged) => {
+       
         return async(dispatch, getState)=>{
-            const respuesta = await axios.post('http://localhost:4000/api/user/signin', userLoggedIn)
+            const respuesta = await axios.post('http://localhost:4000/api/user/signin', userLogged)
             if(!respuesta.data.success){
                 return respuesta.data.errores
                 }
@@ -32,24 +33,26 @@ const userActions={
         }
     },
     loginForzadoPorLocalS:(userLS) => {
+        
         return async (dispatch , getState) =>{
             try{
-                const respuesta = await axios.get ('http://localhost:4000/api/loginLS',{
-                headers:{
-                    'Authorization':'Bearer'+ userLS.token
-                 }
+                const respuesta = await axios.get ('http://localhost:4000/api/user/loginLS',{
+                    headers:{
+                        'Authorization': 'Bearer ' + userLS.token
+            
+                    }
                 })
                 dispatch({type:'LOG_USER', payload:{
-                    ...respuesta,
+                    ...respuesta.data.respuesta,
                     token: userLS.token
                 }})
             }
-            catch(error){
-                if(error.response.status === 401){
-                    alert("token invalido")
+               
+            catch(err) {                
+                if (err.respuesta === 401) {
+                localStorage.clear()
+                    }
                 }
-            }
-           
         }
     }
 }
