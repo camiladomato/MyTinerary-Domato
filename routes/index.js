@@ -41,13 +41,14 @@ router.route('/user/loginLS')
 .get(passport.authenticate('jwt',{session:false}),userControllers.loginForzado)
 
 router.route('/comentario/:id')
+.get(commentsControllers.obtenerComentarios)
 .post(passport.authenticate('jwt',{session:false}),commentsControllers.cargarNuevoComentario )
-//.put(CommentsControllers.editarComentario)
+.put(commentsControllers.editarComentario)
 .delete(commentsControllers.borrarComentario)
 
 router.route('/activity')
 .post(activitiesControllers.cargarActividad)
-.get(activitiesControllers.obtenerTodasLasActividades)
+.get(activitiesControllers.obtenerLasActividadesId)
 
 
 module.exports = router

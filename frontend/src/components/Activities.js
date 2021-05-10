@@ -5,17 +5,27 @@ import {useEffect,useState} from 'react'
 
 
 const Activities = (props) =>{
-  
-   //const [itinerarySelect, setItinerarySelect] = useState(null)
+
+  const [itinerarySelect, setItinerarySelect] = useState(null)
    
-   //useEffect(()=>{setItinerarySelect(props.listaActividades.find(actividad => actividad === props.match.params))
-     // props.cargarActividad(props)
-    //  } , []) 
+   //useEffect(()=>{setItinerarySelect(listaActividades.find(actividad => actividad === actividad.obtenerActividades())
+     // )}
+     //, []) 
 
       return( 
-   <div>
-      {props.listaActividades.map((actividad)=>{
-         <h2>{actividad}</h2>
+   <div className="foto-actividades">
+      {props.listaActividades.map(actividad=>{
+
+         return(
+            <div>
+               <p className="titulo-actividad">{actividad.title}</p>
+               <p>{actividad.description}</p>
+               <p>{"hola aca van las fotos"}</p>
+               
+            </div>
+         )
+        
+         
          })
       }
       
@@ -25,13 +35,13 @@ const Activities = (props) =>{
 }
 
 const mapStateToProps = state =>{
-   console.log(state)
+   
    return{
-       listaActividades: state.itinerary.actividades,    
+      listaActividades: state.itinerary.actividades    
    }
 
 }
 const mapDispatchToProps = {
-   cargarActividad: itineraryActions.cargarActividad,
+   obtenerActividades: itineraryActions.obtenerActividades
 }  
 export default connect (mapStateToProps, mapDispatchToProps)(Activities)

@@ -10,14 +10,20 @@ import Activities from '../components/Activities'
 
 
 
-const City =(props) => {  
-     
+
+const City =(props) => { 
+  
     const [citySelect, setCitySelect] = useState(null)
     const [propiedad,setPropiedad] = useState(true)
+    //const [itinerarySelect, setItinerarySelect] = useState(null)
    
     useEffect(()=>{setCitySelect(props.listaCities.find(city => city._id === props.match.params.id))
     props.cargarItinerarios(props.match.params.id)
     } , []) 
+
+    //useEffect(()=>{setItinerarySelect(props.listaActividades.find(actividad => actividad._id == props.match.params.id))
+      //  props.obtenerActividades()
+        //} , []) 
 
    
     if(props.listaCities.length === 0){
@@ -45,7 +51,7 @@ const City =(props) => {
         {!props.listaItinerary.length ? <h2 className="txt-dont">We don't have any itineraries yet!</h2>
         : <div className="imagenes-iti" style={{backgroundImage:`url(/assets/mapa.jpg)`}} > 
         {props.listaItinerary.map((itinerary)=>{
-            console.log(itinerary)
+            
         return(
             <div className="itinerary">
                         <h2>{itinerary.title}</h2>
@@ -62,14 +68,14 @@ const City =(props) => {
                     <Card>
                         <Accordion.Collapse eventKey="1">
                             <Card.Body>
-                                <Activities />
+                                <Activities itinerarios={itinerary} />
                                  <Comments comentarios={itinerary}/>
                             </Card.Body>
                             
                         </Accordion.Collapse>
                         <Accordion.Toggle as={Card.Header} eventKey="1" onClick={() => setPropiedad(!propiedad)}>
                             {propiedad ? "View more..." : "View less..."}
-                           
+                            
                             </Accordion.Toggle>
                        
                     </Card>
@@ -77,8 +83,10 @@ const City =(props) => {
 
             </div>)
 
+
                 })
         }
+        
         
     </div>
     }
@@ -90,15 +98,16 @@ const City =(props) => {
 }
 
 const mapStateToProps = state =>{
-    console.log(state)
     return{
         listaCities: state.city.cities,
-        listaItinerary: state.itinerary.itinerarios    
+        listaItinerary: state.itinerary.itinerarios,
+          
     }
 }
 const mapDispatchToProps = {
         cargarCiudades: citiesAction.cargarCities,
-        cargarItinerarios: itineraryActions.cargarItinerarios
+        cargarItinerarios: itineraryActions.cargarItinerarios,
+       
 }  
 export default connect (mapStateToProps, mapDispatchToProps) (City)
 

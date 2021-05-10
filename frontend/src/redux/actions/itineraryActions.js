@@ -9,12 +9,16 @@ const itinerariesActions ={
         } 
     },
     cargarComentario: (id, comment) =>{ 
+        console.log({id,comment})
+       
         return async (dispatch, getstate) => {
            try{
             const respuesta= await axios.post('http://localhost:4000/api/comentario/'+ id , {comment} , {
                 headers:{"Authorization":"Bearer " + localStorage.getItem("token")}
             })
-            console.log(respuesta) 
+            
+            return (respuesta.data.response.comments)
+
            }
            catch(error){
                console.log(error)
@@ -24,21 +28,29 @@ const itinerariesActions ={
 
     editarComentario: (id) =>{
         return (dispatch, getstate) => {
-            axios.put('http://localhost:4000/api/comentario/')
+            axios.put('http://localhost:4000/api/comentario/'+ id)
             .then( response =>{return(response.data.response)})
             .catch(error => console.log(error))
         }
     },
     eliminarComentario: (id) =>{
         return (dispatch, getstate) => {
-            axios.delete ('http://localhost:4000/api/comentario/')
+            axios.delete ('http://localhost:4000/api/comentario/' + id)
             .then( response =>{return(response.data.response)})
             .catch(error => console.log(error))
         } 
     },
-    cargarActividad: (id) =>{
+    obtenerComentarios:(id) =>{
         return (dispatch, getstate) => {
-            axios.post (' http://localhost:4000/api/activity')
+            axios.get ('http://localhost:4000/api/comentarios/')
+            .then( response =>{return(response.data.response)})
+            .catch(error => console.log(error))
+        } 
+    },
+    obtenerActividades: (id) =>{
+        console.log(id)
+        return (dispatch, getstate) => {
+            axios.get (' http://localhost:4000/api/activity'+ id)
             .then(response => dispatch({type:'CARGAR_ACTIVIDADES', payload: response.data.response}))
             .catch(error => console.log(error))
         }

@@ -7,7 +7,6 @@ const commentsControllers = {
         var comentario= req.body.comment
         var userId= req.user._id 
         cargarComentario = await Itinerary.findOneAndUpdate({_id:itinerarioId}, {$push: {comments: {userId: userId, comment: comentario}}}, {new: true})
-        console.log(cargarComentario)
         res.json({success:true , response:cargarComentario})
     },
     borrarComentario:async (req,res) =>{ 
@@ -20,6 +19,11 @@ const commentsControllers = {
         const idAModificar = req.params.id
         const editarComentarios = await Itinerary.findOneAndUpdate({_id:idAModificar},req.body,{new:true}) 
         res.json({response: editarComentarios, success:true}) 
-    }
+    },
+    obtenerComentarios:async (req,res) =>{
+        const todosLosComentarios = await Itinerary.find() 
+        res.json({response : todosLosComentarios , sucess: true})
+        } 
+
 }     
 module.exports = commentsControllers 
