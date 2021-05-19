@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import {useState} from 'react'
 
 const Comments= (props) =>{
+  console.log(props) 
 
   const [nuevoComentario,setNuevoComentario] = useState ({comment:""})
   const [comentarios,setComentarios] = useState ([])
@@ -17,7 +18,8 @@ const Comments= (props) =>{
           [campo]:valor
       })
   }
-  const send = async (props) =>{  
+  const send = async (props) =>{ 
+    
     const respuesta = await props.cargarComentario(props.comentarios._id,nuevoComentario.comment)
     setComentarios(comentarios)
     }
