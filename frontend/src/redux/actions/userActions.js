@@ -3,7 +3,7 @@ import axios from 'axios'
 const userActions={
     crearUsuario:(newUser) => {
         return async(dispatch, getState)=>{
-            const respuesta = await axios.post('http://mitinerary-domato.herokuapp.com/api/user/signup', newUser)
+            const respuesta = await axios.post('https://mitinerary-domato.herokuapp.com/api/user/signup', newUser)
             if(!respuesta.data.success){
                return respuesta.data.errores
             }
@@ -17,7 +17,7 @@ const userActions={
     loguearUsuario:(userLogged) => {
        
         return async(dispatch, getState)=>{
-            const respuesta = await axios.post('http://mitinerary-domato.herokuapp.com/api/user/signin', userLogged)
+            const respuesta = await axios.post('https://mitinerary-domato.herokuapp.com/api/user/signin', userLogged)
             if(!respuesta.data.success){
                 return respuesta.data.errores
                 }
@@ -36,7 +36,7 @@ const userActions={
         
         return async (dispatch , getState) =>{
             try{
-                const respuesta = await axios.get ('http://mitinerary-domato.herokuapp.com/api/user/loginLS',{
+                const respuesta = await axios.get ('https://mitinerary-domato.herokuapp.com/api/user/loginLS',{
                     headers:{
                         'Authorization': 'Bearer ' + userLS.token
             

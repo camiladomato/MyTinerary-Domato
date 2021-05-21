@@ -28,21 +28,21 @@ const itinerariesActions ={
 
     editarComentario: (id) =>{
         return (dispatch, getstate) => {
-            axios.put('http://mitinerary-domato.herokuapp.com/api/comentario/'+ id)
+            axios.put('https://mitinerary-domato.herokuapp.com/api/comentario/'+ id)
             .then( response =>{return(response.data.response)})
             .catch(error => console.log(error))
         }
     },
     eliminarComentario: (id) =>{
         return (dispatch, getstate) => {
-            axios.delete ('http://mitinerary-domato.herokuapp.com/api/comentario/' + id)
+            axios.delete ('https://mitinerary-domato.herokuapp.com/api/comentario/' + id)
             .then( response =>{return(response.data.response)})
             .catch(error => console.log(error))
         } 
     },
     obtenerComentarios:(id) =>{
         return (dispatch, getstate) => {
-            axios.get ('http://mitinerary-domato.herokuapp.com/api/comentarios/')
+            axios.get ('https://mitinerary-domato.herokuapp.com/api/comentarios/')
             .then( response =>{return(response.data.response)})
             .catch(error => console.log(error))
         } 
@@ -50,7 +50,7 @@ const itinerariesActions ={
     obtenerActividades: (id) =>{
         console.log(id)
         return (dispatch, getstate) => {
-            axios.get (' http://mitinerary-domato.herokuapp.com/api/activity'+ id)
+            axios.get (' https://mitinerary-domato.herokuapp.com/api/activity'+ id)
             .then(response => dispatch({type:'CARGAR_ACTIVIDADES', payload: response.data.response}))
             .catch(error => console.log(error))
         }
