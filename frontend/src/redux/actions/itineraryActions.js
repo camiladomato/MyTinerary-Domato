@@ -3,7 +3,7 @@ import axios from 'axios';
 const itinerariesActions ={
     cargarItinerarios: (id) => {
         return (dispatch, getstate) => {
-            axios.get('http://localhost:4000/api/itinerary/'+id)
+            axios.get('http://mitinerary-domato.herokuapp.com/api/itinerary/'+id)
             .then(response => dispatch({type: 'CARGAR_ITINERARIO', payload: response.data.response}))
             .catch(error => console.log(error))
         } 
@@ -13,7 +13,7 @@ const itinerariesActions ={
        
         return async (dispatch, getstate) => {
            try{
-            const respuesta= await axios.post('http://localhost:4000/api/comentario/'+ id , {comment} , {
+            const respuesta= await axios.post('http://mitinerary-domato.herokuapp.com/api/comentario/'+ id , {comment} , {
                 headers:{"Authorization":"Bearer " + localStorage.getItem("token")}
             })
             
@@ -28,21 +28,21 @@ const itinerariesActions ={
 
     editarComentario: (id) =>{
         return (dispatch, getstate) => {
-            axios.put('http://localhost:4000/api/comentario/'+ id)
+            axios.put('http://mitinerary-domato.herokuapp.com/api/comentario/'+ id)
             .then( response =>{return(response.data.response)})
             .catch(error => console.log(error))
         }
     },
     eliminarComentario: (id) =>{
         return (dispatch, getstate) => {
-            axios.delete ('http://localhost:4000/api/comentario/' + id)
+            axios.delete ('http://mitinerary-domato.herokuapp.com/api/comentario/' + id)
             .then( response =>{return(response.data.response)})
             .catch(error => console.log(error))
         } 
     },
     obtenerComentarios:(id) =>{
         return (dispatch, getstate) => {
-            axios.get ('http://localhost:4000/api/comentarios/')
+            axios.get ('http://mitinerary-domato.herokuapp.com/api/comentarios/')
             .then( response =>{return(response.data.response)})
             .catch(error => console.log(error))
         } 
@@ -50,7 +50,7 @@ const itinerariesActions ={
     obtenerActividades: (id) =>{
         console.log(id)
         return (dispatch, getstate) => {
-            axios.get (' http://localhost:4000/api/activity'+ id)
+            axios.get (' http://mitinerary-domato.herokuapp.com/api/activity'+ id)
             .then(response => dispatch({type:'CARGAR_ACTIVIDADES', payload: response.data.response}))
             .catch(error => console.log(error))
         }
