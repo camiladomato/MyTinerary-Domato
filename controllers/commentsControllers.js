@@ -6,7 +6,7 @@ const commentsControllers = {
         var itinerarioId= req.params.id
         var comentario= req.body.comment
         var userId= req.user._id 
-        cargarComentario = await Itinerary.findOneAndUpdate({_id:itinerarioId}, {$push: {comments: {userId: userId, comment: comentario}}}, {new: true})
+        cargarComentario = await Itinerary.findOneAndUpdate({_id:itinerarioId},{$push: {comments: {userId: userId, comment: comentario}}}, {new: true})
         res.json({success:true , response:cargarComentario})
     },
     borrarComentario:async (req,res) =>{ 
