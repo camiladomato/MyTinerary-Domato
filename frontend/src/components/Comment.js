@@ -2,57 +2,73 @@ import React from 'react'
 import {connect} from 'react-redux';
 import itineraryActions from '../redux/actions/itineraryActions';
 import {useState} from 'react'
-import { set } from 'mongoose';
+
 
 
 const Comment = (props) =>{
     console.log(props)
    
-    const [comentarioEditado ,setComentarioEditado] = useState (props.datosComentarios.comment)
+    const [comentarioEditado ,setComentarioEditado] = useState (props.datosComentarios.comment,props.datosComentarios.userId)
     const [comentarioEliminado ,setComentarioEliminado] = useState (" ")
     const [nuevoComentario,setNuevoComentario] = useState (props.datosComentarios.comment)
     const [comentarios,setComentarios] = useState ([])
 
       
-  const input= e => {
+  const readInput= e => {
     const campo = e.target.name
     const valor = e.target.value
     setNuevoComentario({
         ...nuevoComentario,
         [campo]:valor
     })
-}
+    }
+    const readInputReply= e => {
+        const campo = e.target.name
+        const valor = e.target.value
+        setNuevoComentario({
+            ...nuevoComentario,
+            [campo]:valor
+        })
+    }
 
-    const send = async (props) =>{  
-        const respuesta = await props.cargarComentario(props.comentarios._id,nuevoComentario.comment)
+    const send = async () =>{  
+        const respuesta = await props.cargarComentario(props.datosComentarios._id,nuevoComentario.comment)
         setComentarios(comentarios)
         }
     
-    var edit =  async (props)=>{
-    var respuestaAEditar = await props.editarComentario(comentarioEditado)}
+    var edit =  async ()=>{
+    var respuestaAEditar = await props.editarComentario(props.datosComentarios.comment, comentarioEditado.comment)
+    setComentarioEditado(comentarioEditado)
+    }
     
-    var borrar = async (props) =>{
-    var respuestaBorrar = await props.eliminarComentario(props.datosComentarios.comment, comentarioEliminado)}
+    var borrar = async () =>{
+    var respuestaBorrar = await props.eliminarComentario(props.datosComentarios.comment, comentarioEliminado.comment)
+    setComentarioEliminado(comentarioEliminado)
+    }
     
-    var fotoUser = props.userLogged
-    ? props.userLogged.urlImage
-    : '../assets/signup.png'
+    var fotoUser = props.usuarioLogueado
+    ? 
+    props.usuarioLogueado.urlImage
+    : 
+    '../assets/signup.png'
      
     return( <>
-                {props.usuarioLogueado ? 
-                <div>
-                   <div className="foto-user" style= {{ backgroundImage :`url(${fotoUser})`}}></div>
+
+                
+                {props.usuarioLogueado
+                
+                ? 
+                <div className="comentario">
+                    <div className="foto-user" style= {{ backgroundImage :`url(${fotoUser})`}}></div>
                     <p>{props.usuarioLogueado.name}</p>
                     <p>{props.datosComentarios.comment}</p>
-                    <>
-                    <button onClick={edit}>Edit</button>
-                    <input value={props.datosComentarios.comment,setComentarioEditado} onChange={input} />
-                    <button onClick={send}>Send</button>
-
+                    <button onClick={send} className="boton-comentario">S</button>
+                    <button onClick={edit} className="boton-comentario">E</button>
+                    <button onClick={borrar}className="boton-comentario">D</button>
+                    <input type="text" name="comment"  value={nuevoComentario.comment} onChange={readInput} />
                     
-                    <button onClick={borrar}>Delete</button>
-                    <input value={comentarioEliminado} onChange={()=> setComentarioEliminado()}  />
-                    </>     
+                   
+                    
                 </div>
             :  
             <div>
@@ -63,9 +79,6 @@ const Comment = (props) =>{
     )
        
 }
-              
-          
- 
  const mapStateToProps = state =>{
     return{
         usuarioLogueado: state.user.userLogged   
@@ -75,7 +88,8 @@ const Comment = (props) =>{
 const mapDispatchToProps = {
     editarComentario: itineraryActions.editarComentario,
     eliminarComentario: itineraryActions.eliminarComentario,
-    obtenerComentarios: itineraryActions.obtenerComentarios  
+    obtenerComentario: itineraryActions.obtenerComentarios,
+    cargarComentario: itineraryActions.cargarComentario,  
 }
 
 export default connect (mapStateToProps , mapDispatchToProps) (Comment)

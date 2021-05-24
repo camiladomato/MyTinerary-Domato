@@ -412,6 +412,14 @@ input,select,button{
 .titulo-actividad{
     background-color: blue;
 }
+.boton-comentario{
+    width: 3vw;
+    height: 4vh;
+    margin: 1vh;
+}
+.fa-paper-plane{
+    width: 1vw;
+}
     
 
 

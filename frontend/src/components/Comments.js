@@ -18,8 +18,7 @@ const Comments= (props) =>{
           [campo]:valor
       })
   }
-  const send = async (props) =>{ 
-    
+  const send = async () =>{ 
     const respuesta = await props.cargarComentario(props.comentarios._id,nuevoComentario.comment)
     setComentarios(comentarios)
     }
@@ -41,6 +40,7 @@ const Comments= (props) =>{
         )
   }
   const mapStateToProps = state =>{
+    console.log(state)
     return{
         usuarioLogueado: state.user.userLogged   
     }

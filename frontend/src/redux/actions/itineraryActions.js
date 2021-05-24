@@ -8,8 +8,7 @@ const itinerariesActions ={
             .catch(error => console.log(error))
         } 
     },
-    cargarComentario: (id, comment) =>{ 
-        console.log({id,comment})
+    cargarComentario: (id, comment)  =>{ 
        
         return async (dispatch, getstate) => {
            try{
@@ -26,9 +25,9 @@ const itinerariesActions ={
         }
     },
 
-    editarComentario: (id) =>{
+    editarComentario: (id , comment ) =>{
         return (dispatch, getstate) => {
-            axios.put('https://mitinerary-domato.herokuapp.com/api/comentario/'+ id)
+            axios.put('https://mitinerary-domato.herokuapp.com/api/comentario/'+ id , {comment})
             .then( response =>{return(response.data.response)})
             .catch(error => console.log(error))
         }
