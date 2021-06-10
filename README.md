@@ -1,7 +1,7 @@
 # MyTinerary-Domato
-# MYTINERARY APLICACIÓN WEB
+# MYTINERARY APLICACIÓN WEB 
 
-Aplicacion web de viajes
+Aplicacion web de viajes ✈
 
 Podes ver la web en el siguiente enlace :  https://mitinerary-domato.herokuapp.com
 
