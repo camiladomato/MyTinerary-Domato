@@ -3,7 +3,7 @@ const City = require('../models/Cities')
 const citiesControllers = {
     obtenerCiudades:async (req,res) =>{
         const allCities = await City.find() 
-        res.json({response : allCities , sucess: true})
+        res.json({response : allCities , success:true})
     }, 
     cargarNuevaCiudad:async (req,res) =>{
         const {city, path, country, info} = req.body 
@@ -14,7 +14,7 @@ const citiesControllers = {
     borrarCiudad:async (req,res) =>{ 
         const idABorrar=req.params.id
         const ciudadABorrar = await City.findOneAndRemove({_id:idABorrar})
-        res.json({reponse:ciudadABorrar , sucesss:true})
+        res.json({response:ciudadABorrar , success:true})
        
     },
     actualizarCiudad:async (req,res) =>{
@@ -25,7 +25,7 @@ const citiesControllers = {
     buscarCiudadPorId:async (req,res) =>{
         const idABuscar = req.params.id
         const ciudadBuscada = await City.findOne ({_id:idABuscar})
-        res.json({response:ciudadBuscada, succes:true})
+        res.json({response:ciudadBuscada, success:true})
     }
 }     
 module.exports = citiesControllers 
