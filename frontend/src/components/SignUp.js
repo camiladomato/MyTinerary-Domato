@@ -2,10 +2,12 @@ import { useState } from 'react'
 import  GoogleLogin  from 'react-google-login';
 import { connect } from 'react-redux'
 import userActions from '../redux/actions/userActions';
+import { useHistory } from 'react-router-dom';
 
 
 
 const SignUp = (props) => {
+    const history = useHistory()
  
     const [newUser,setNewUser] = useState ({name:"",lastName:"",email:"",password:"",urlImage:"",country:""})
     const [errores, setErrores] = useState ([])
@@ -23,14 +25,17 @@ const SignUp = (props) => {
         e && e.preventDefault()
          var user = e ? newUser : googleUser
         const respuesta = await props.crearUsuario(user)
-        if (respuesta){
-            setErrores(respuesta)
+        if (respuesta && respuesta.success) {
+            setNewUser({ name: "", lastName: "", email: "", password: "", urlImage: "", country: "" })
+            setErrores([])
+            history.push('/cities')
+        } else if (respuesta) {
+            setErrores(respuesta.error || respuesta.errores || respuesta)
         }
-       
     }
     const responseGoogle = (response) => {
        const {givenName,familyName,email,googleId,imageUrl} = response.profileObj
-       send({name: givenName, lastName: familyName , email: email ,password: googleId , imageUrl:imageUrl, country: givenName}) 
+       send(null,{name: givenName, lastName: familyName , email: email ,password: googleId , urlImage:imageUrl, country: givenName}) 
     }
 
     var paises = ["Russia","Argentine","France","Spain","United States","Germany","Italy","Mexico"] 
@@ -58,9 +63,14 @@ const SignUp = (props) => {
                     cookiePolicy={'single_host_origin'}
                 />,          
             </form>
-            <div>
-                {errores.map(error => <h1>{error}</h1>)}
+            <div className="contenedor-errores">
+                {Array.isArray(errores) ? (
+                    errores.map((error, index) => <h1 key={index}>{error.message || error}</h1>)
+                ) : (
+                    errores && <h1>{errores}</h1>
+                )}
             </div>
+            
             </div>
             )
 }
