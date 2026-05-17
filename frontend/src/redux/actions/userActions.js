@@ -5,12 +5,13 @@ const userActions={
         return async(dispatch, getState)=>{
             const respuesta = await axios.post('/api/user/signup', newUser)
             if(!respuesta.data.success){
-               return respuesta.data.errores
+               return respuesta.data
             }
             dispatch({
                 type:'LOG_USER',
                 payload: respuesta.data.success ? respuesta.data.respuesta : null
             })
+            return respuesta.data
         }
 
     },
@@ -19,11 +20,13 @@ const userActions={
         return async(dispatch, getState)=>{
             const respuesta = await axios.post('/api/user/signin', userLogged)
             if(!respuesta.data.success){
-                return respuesta.data.errores
+                return respuesta.data
                 }
             dispatch({
                 type:'LOG_USER', 
-                payload: respuesta.data.success ? respuesta.data.respuesta : null})
+                payload: respuesta.data.success ? respuesta.data.respuesta : null
+            })
+            return respuesta.data
         }
 
     },

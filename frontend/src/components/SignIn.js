@@ -2,9 +2,11 @@ import { useState } from 'react'
 import { connect } from 'react-redux'
 import userActions from '../redux/actions/userActions'
 import  GoogleLogin  from 'react-google-login'
+import { useHistory } from 'react-router-dom'
 
 
 const SignIn = (props) => {
+    const history = useHistory()
     const [userLoggedIn,setUserLoggedIn] =(useState({email:"",password:""}))
     
     const readInputForm= e => {
@@ -17,15 +19,24 @@ const SignIn = (props) => {
     }
 
     const sendForm =async (e = null , googleUser = null) =>{
-        e.preventDefault()
+        if (e) e.preventDefault()
         var user = e ? userLoggedIn : googleUser
-        props.loguearUsuario(user)
+        const res = await props.loguearUsuario(user)
+        if (res && res.success) {
+          
+            setUserLoggedIn({ email: "", password: "" })
+            
+            history.push('/cities')
+        } else {
+           
+            alert(res?.error || "Incorrect user or password")
+        }
+    }
         
        
-    }
     const responseGoogle = (response) => {
-        if(response.profileObj.email){
-            sendForm(null,{email: response.profileObj , password: 'a'+ response.profileObj.googleId}) 
+        if(response.profileObj?.email){
+            sendForm(null,{email: response.profileObj.email , password: 'a'+ response.profileObj.googleId}) 
         }
         else{
             alert("error inesperado")
@@ -45,10 +56,11 @@ const SignIn = (props) => {
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle}
                     cookiePolicy={'single_host_origin'}
-                />,                    
+                />                    
             </form>
         </div>
-    )}
+    )
+}
 
 
 const mapDispatchToProps ={
