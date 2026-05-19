@@ -3,7 +3,7 @@
 
 Aplicacion web de viajes ✈
 
-Podes ver la web en el siguiente enlace :  https://mitinerary-domato.herokuapp.com
+Podes ver la web en el siguiente enlace : https://my-tinerary-domato.vercel.app/
 
 # Trabajo realizado
 
