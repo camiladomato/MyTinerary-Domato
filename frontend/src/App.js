@@ -1,8 +1,8 @@
 import React from 'react' 
 import './pages/App.css'
 import Home from './pages/Home'
-import Cities from  './pages/Cities'
-import{BrowserRouter, Route, Redirect, Switch} from 'react-router-dom'
+import Cities from './pages/Cities'
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
 import Cmpt404 from './pages/404'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header'
@@ -13,48 +13,58 @@ import SignUp from './components/SignUp'
 import { connect } from 'react-redux'
 import userActions from './redux/actions/userActions'
 
+class App extends React.Component {
 
+  // 🛡️ SE EJECUTA UNA SOLA VEZ AL ABRIR LA APP
+  componentDidMount() {
+    if (localStorage.getItem('token')) {
+      const token = localStorage.getItem('token');
+      
+      // Intentamos recuperar el string de userLogged por si las dudas
+      const userLoggedStorage = localStorage.getItem('userLogged');
+      const datosUser = userLoggedStorage ? JSON.parse(userLoggedStorage) : null;
 
-class App extends React.Component{
-  render(){
-  
- if (!this.props.userLogged && localStorage.getItem('token')){      
-  var datosUser=this.props.loginForzadoPorLocalS(JSON.parse(localStorage.getItem('userLogged')))
-      var userLS ={
-        token:localStorage.getItem('token'),
+      const userLS = {
+        token: token,
         ...datosUser
       }
-     this.props.loginForzadoPorLocalS(userLS)
+      
+      // Despachamos la verificación al Backend de forma segura
+      this.props.loginForzadoPorLocalS(userLS)
     }
-   
-   
-    return(  
-    <BrowserRouter>
-      <Header/>
+  }
+
+  render() {
+    return (  
+      <BrowserRouter>
+        <Header />
         <Switch>
-          <Route exact path="/" component= {Home}/>
-          <Route path="/cities" component= {Cities}/>
+          <Route exact path="/" component={Home} />
+          <Route path="/cities" component={Cities} />
           <Route path="/city/:id" component={City} />
-          {!this.props.userLogged && <Route path="/signin" component={SignIn}/>}
-          {!this.props.userLogged && <Route path="/signup" component={SignUp}/>}
-          <Route path="/error" component= {Cmpt404}/>
-          <Redirect to ="/error"/>
+          
+          {/* Protegemos las rutas usando el prop correcto mapeado abajo */}
+          {!this.props.userLogged && <Route path="/signin" component={SignIn} />}
+          {!this.props.userLogged && <Route path="/signup" component={SignUp} />}
+          
+          <Route path="/error" component={Cmpt404} />
+          <Redirect to="/error" />
         </Switch>
-      <Footer/> 
-    </BrowserRouter> 
-     )
+        <Footer /> 
+      </BrowserRouter> 
+    )
   }
 }
-const mapStateToProps = state =>{
-  return{
-    userLogged: state.userLogged}
+
+// 🛡️ CORRECCIÓN CLAVE: Apuntamos exactamente a donde Redux guarda los datos
+const mapStateToProps = state => {
+  return {
+    userLogged: state.user ? state.user.userLogged : null
+  }
 }
-const mapDispatchToProps ={
+
+const mapDispatchToProps = {
   loginForzadoPorLocalS: userActions.loginForzadoPorLocalS
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
-
-
-
- 

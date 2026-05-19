@@ -4,10 +4,10 @@ const jwt = require('jsonwebtoken')
 
 const userControllers = {
     cargarNuevoUsuario: async (req, res) => {
-        const { name, lastName, email, password, urlImage, country } = req.body
+        const { name, lastName, email, password, urlImage, country, from} = req.body
         const existingUser = await User.findOne({ email })
 
-        let respuesta, error, userSave // Usamos let para mejor práctica
+        let respuesta, error, userSave 
 
         if (!existingUser) {
             try {
@@ -20,15 +20,19 @@ const userControllers = {
                 error = "An error occurred while recording, please retry"
             }
         } else {
-            error = "Error, the email is in use"
+            if (from === 'google') {
+                const token = jwt.sign({ ...existingUser }, process.env.SECRET_OR_KEY)
+                respuesta = token
+                res.json({
+                    success: true,
+                    respuesta: { token: respuesta, urlImage: existingUser.urlImage, name: existingUser.name },
+                    error: null
+                })
+            } else {
+                
+                res.json({ success: false, respuesta: null, error: "Error, the email is in use" })
+            }
         }
-
-        res.json({
-            success: !error,
-            // Agregamos un chequeo: si hay error, mandamos null
-            respuesta: !error ? { token: respuesta, urlImage: userSave.urlImage, name: userSave.name } : null,
-            error: error
-        })
     },
 
     loguearUsuario: async (req, res) => {
@@ -50,14 +54,12 @@ const userControllers = {
 
         res.json({
             success: !error,
-            // LA CLAVE: Solo lee existingUser si !error es true
             respuesta: !error ? { token: respuesta, urlImage: existingUser.urlImage, name: existingUser.name } : null,
             error: error
         })
     },
 
     loginForzado: (req, res) => {
-        // Corregí el typo de "succes" a "success"
         res.json({ success: true, respuesta: { urlImage: req.user.urlImage, name: req.user.name } })
     }
 }

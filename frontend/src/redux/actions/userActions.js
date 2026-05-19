@@ -1,19 +1,34 @@
 import axios from 'axios'
+axios.defaults.baseURL = 'http://localhost:4000'
 
 const userActions={
-    crearUsuario:(newUser) => {
-        return async(dispatch, getState)=>{
-            const respuesta = await axios.post('/api/user/signup', newUser)
-            if(!respuesta.data.success){
-               return respuesta.data
-            }
-            dispatch({
-                type:'LOG_USER',
-                payload: respuesta.data.success ? respuesta.data.respuesta : null
-            })
-            return respuesta.data
-        }
+   crearUsuario: (newUser) => {
+        return async (dispatch, getState) => {
+            try {
+                const respuesta = await axios.post('/api/user/signup', newUser)
+                
+              
+                if (!respuesta.data.success) {
+                   
+                    dispatch({
+                        type: 'LOG_USER',
+                        payload: null
+                    })
+                    return respuesta.data 
+                }
+                
+               
+                dispatch({
+                    type: 'LOG_USER',
+                    payload: respuesta.data.respuesta
+                })
+                return respuesta.data
 
+            } catch (error) {
+                console.log("Error en la petición de registro:", error)
+                return { success: false, error: "Error de conexión con el servidor." }
+            }
+        }
     },
     loguearUsuario:(userLogged) => {
        

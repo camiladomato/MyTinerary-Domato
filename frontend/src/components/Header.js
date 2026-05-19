@@ -5,13 +5,13 @@ import userActions from '../redux/actions/userActions'
 
 const Header=(props)=>{
    
-    var usuario = props.userLogged
-    ? props.userLogged.name
-    : ' '
-    var fotoUser = props.userLogged
-    ? props.userLogged.urlImage
-    : '../assets/signup.png'
-    
+    var usuario = (props.userLogged && typeof props.userLogged === 'object' && props.userLogged.name)
+? props.userLogged.name
+: ' '
+
+var fotoUser = (props.userLogged && typeof props.userLogged === 'object' && props.userLogged.urlImage)
+? props.userLogged.urlImage
+: '../assets/signup.png'
 return(
      
     <header className="nav-h" >

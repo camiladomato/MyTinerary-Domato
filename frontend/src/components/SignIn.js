@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import userActions from '../redux/actions/userActions'
 import  GoogleLogin  from 'react-google-login'
@@ -9,6 +9,11 @@ const SignIn = (props) => {
     const history = useHistory()
     const [userLoggedIn,setUserLoggedIn] =(useState({email:"",password:""}))
     
+    useEffect(() => {
+        if (props.user) {
+            history.push('/cities')
+        }
+    }, [props.user, history]) 
     const readInputForm= e => {
         const campo = e.target.name
         const valor = e.target.value
@@ -36,7 +41,7 @@ const SignIn = (props) => {
        
     const responseGoogle = (response) => {
         if(response.profileObj?.email){
-            sendForm(null,{email: response.profileObj.email , password: 'a'+ response.profileObj.googleId}) 
+            sendForm(null,{email: response.profileObj.email , password: response.profileObj.googleId}) 
         }
         else{
             alert("error inesperado")
@@ -61,10 +66,14 @@ const SignIn = (props) => {
         </div>
     )
 }
-
+const mapStateToProps = (state) => {
+    return {
+      user: state.user.userLogged
+    }
+}
 
 const mapDispatchToProps ={
     loguearUsuario : userActions.loguearUsuario
 }
 
-export default connect(null,mapDispatchToProps)(SignIn)
+export default connect(mapStateToProps ,mapDispatchToProps)(SignIn)
