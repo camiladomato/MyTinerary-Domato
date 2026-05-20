@@ -79,46 +79,69 @@ const SignUp = (props) => {
 
     var paises = ["Russia", "Argentine", "France", "Spain", "United States", "Germany", "Italy", "Mexico"] 
     
-    return (  
-        <div className="sign-up" style={{ backgroundImage: `url(/assets/fondo-formulario.jpg)` }} >
-            <form className="formulario-signUp">
-                <h1 className="title-form">Create an account</h1>
-                <input type="text" placeholder="Enter your Name" name="name" value={newUser.name} onChange={readInput}/>
-                <input type="text" placeholder="Enter your LastName" name="lastName" value={newUser.lastName} onChange={readInput}/>
-                <input type="email" placeholder="Enter your Email" name="email" value={newUser.email} onChange={readInput}/>
-                <input type="password" placeholder="Enter your Password" name="password" value={newUser.password} onChange={readInput}/>
-                <input type="text" placeholder="Enter your Photo(url)" name="urlImage" value={newUser.urlImage} onChange={readInput}/>
-                <select name="country" value={newUser.country} onChange={readInput}>
-                    <option>Choose your country</option>
-                    {paises.map(pais => {
-                        return (<option key={pais} value={pais}>{pais}</option>)
-                    })}
-                </select>  
-                <button onClick={send}>Send</button>
-                <GoogleLogin
-                    clientId="51994203609-6pfr06m9b9vn7tcr4lrad0nrgm1i42b8.apps.googleusercontent.com"
-                    buttonText="Sign Up with Google"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                    cookiePolicy={'single_host_origin'}
-                />          
-            </form>
+   return (  
+    <div className="sign-up" style={{ backgroundImage: `url(/assets/fondo-formulario.jpg)` }} >
+        <form className="formulario-signUp" autoComplete="none">
+            <h1 className="title-form">Create an account</h1>
+            
+            <input type="text" name="email" style={{ display: 'none' }} autoComplete="none" />
+            <input type="password" name="password" style={{ display: 'none' }} autoComplete="none" />
+            
+           
+            <input type="text" placeholder="Enter your Name" name="name" value={newUser.name} onChange={readInput}/>
+            <input type="text" placeholder="Enter your LastName" name="lastName" value={newUser.lastName} onChange={readInput}/>
+            
+            <input 
+                type="text" 
+                placeholder="Enter your Email" 
+                name="email" 
+                autoComplete="new-off"
+                value={newUser.email} 
+                onChange={readInput}
+            />
+            
+            <input 
+                type="password" 
+                placeholder="Enter your Password" 
+                name="password" 
+                autoComplete="new-password"
+                value={newUser.password} 
+                onChange={readInput}
+            />
+            
+            <input type="text" placeholder="Enter your Photo(url)" name="urlImage" value={newUser.urlImage} onChange={readInput}/>
+            
+            <select name="country" value={newUser.country} onChange={readInput}>
+                <option value="">Choose your country</option>
+                {paises.map(pais => {
+                    return (<option key={pais} value={pais}>{pais}</option>)
+                })}
+            </select>  
+            
+            <button onClick={send}>Send</button>
+            
+            <GoogleLogin
+                clientId="51994203609-6pfr06m9b9vn7tcr4lrad0nrgm1i42b8.apps.googleusercontent.com"
+                buttonText="Sign Up with Google"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={'single_host_origin'}
+            />          
+        </form>
 
-            {/* 🛡️ RENDER SEGURO AL 100%: Evitamos anidaciones raras de ternarios */}
-            <div className="contenedor-errores">
-                {Array.isArray(errores) && errores.map((error, index) => (
-                    <h1 key={index} style={{ color: 'red', fontSize: '1rem' }}>
-                        {typeof error === 'object' ? JSON.stringify(error) : error}
-                    </h1>
-                ))}
-            </div>
+        <div className="contenedor-errores">
+            {Array.isArray(errores) && errores.map((error, index) => (
+                <h1 key={index} style={{ color: 'red', fontSize: '1rem' }}>
+                    {typeof error === 'object' ? JSON.stringify(error) : error}
+                </h1>
+            ))}
         </div>
-    )
+    </div>
+)
 }
-
 const mapStateToProps = (state) => {
     return {
-       // Protección extra por si las moscas si state.user no cargó todavía
+      
        user: state.user ? state.user.userLogged : null
     }
 }
